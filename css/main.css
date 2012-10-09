@@ -114,6 +114,14 @@ textarea {
 	height: 40px;
 	background: url(../img/plus.png) no-repeat;
 }
+#etusivu {
+	position: fixed;
+	left: 10px;
+	bottom: 10px;
+	width: 40px;
+	height: 40px;
+	background: #00bb44;
+}
 
 
 
