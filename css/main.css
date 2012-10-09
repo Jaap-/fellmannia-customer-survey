@@ -112,7 +112,7 @@ textarea {
 	bottom: 10px;
 	width: 40px;
 	height: 40px;
-	background-image: url(../img/plus.png);
+	background: url(../img/plus.png) no-repeat;
 }
 
 
