@@ -21,6 +21,8 @@ textarea {
 body {
     font-size: 1em;
     line-height: 1.4;
+	padding: 0;
+	margin: 0;
 }
 
 /*
@@ -92,7 +94,18 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
+#kategoriat {
+	width: 100%;
+	height: 60px;
+	background: #397;
+	overflow: hidden;
+}
+#pallot {
+	position: fixed;
+	width: 100%;
+	background: #916;
+	overflow: hidden;
+}
 
 
 
