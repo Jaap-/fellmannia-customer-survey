@@ -122,6 +122,26 @@ textarea {
 	height: 40px;
 	background: #00bb44;
 }
+#palaute_ikkuna {
+	left: 40%;
+	position: absolute;
+	top: 40%;
+	background: none repeat scroll 0 0 #FFF49E;
+	border: 1px solid;
+	height: 200px;
+	width: 350px;
+	padding: 5px;
+	display: none;
+}
+#sulje_ikkuna {
+	background: url(../img/x.png) no-repeat scroll 0 0 transparent;
+	cursor: pointer;
+	height: 32px;
+	position: relative;
+	top: -20px;
+	width: 32px;
+}
+
 
 
 
