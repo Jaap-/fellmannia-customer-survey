@@ -34,17 +34,17 @@ div.icon-info{
 	height:35px;
 }
 div.icon-lahti{
-	background:url(../img/icons_frontpage.png) no-repeat 0 0;
+	background:url(../img/icon_lahti.png) no-repeat;
 	width:85px;
 	height:85px;
 }
 div.icon-matkahuolto{
-	background:url(../img/icons_frontpage.png) no-repeat -85px 0;
+	background:url(../img/icon_matkahuolto.png) no-repeat;
 	width:85px;
 	height:85px;
 }
 div.icon-vr{
-	background:url(../img/icons_frontpage.png) no-repeat -170px 0;
+	background:url(../img/icon_vr.png) no-repeat;
 	width:85px;
 	height:85px;
 }

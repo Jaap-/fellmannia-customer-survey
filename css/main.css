@@ -23,6 +23,14 @@ body {
     line-height: 1.4;
 	padding: 0;
 	margin: 0;
+	background: #606060; /* Old browsers */
+	background: -moz-linear-gradient(left, #606060 0%, #c6c6c6 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#606060), color-stop(100%,#c6c6c6)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* IE10+ */
+	background: linear-gradient(to right, #606060 0%,#c6c6c6 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#c6c6c6',GradientType=1 ); /* IE6-9 */
 }
 
 /*
@@ -94,52 +102,94 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+   
+#pallomeri {
+	display: none;
+}
+#pallomeri-instructions-box {
+	background:url(../img/bg_darktransparent.png);
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:100;
+}
+#pallomeri-instructions-box > div {
+	width:500px;
+	margin:0 auto;
+	margin-top:5%;
+	color:#fff;
+	text-align:center;
+}
+#pallomeri-instructions-box > div > div {
+	width:100%;
+	background-position:top center;
+	margin:0 auto;
+}
 #kategoriat {
 	width: 100%;
 	height: 60px;
-	background: #397;
+	/*background: #397;*/
 	overflow: hidden;
+	background: #606060; /* Old browsers */
+	background: -moz-linear-gradient(left, #606060 0%, #c6c6c6 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#606060), color-stop(100%,#c6c6c6)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* IE10+ */
+	background: linear-gradient(to right, #606060 0%,#c6c6c6 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#c6c6c6',GradientType=1 ); /* IE6-9 */
 }
 #pallot {
 	position: fixed;
 	width: 100%;
-	background: #916;
+	/*background: #916;*/
 	overflow: hidden;
+	background: #606060; /* Old browsers */
+	background: -moz-linear-gradient(left, #606060 0%, #c6c6c6 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#606060), color-stop(100%,#c6c6c6)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* IE10+ */
+	background: linear-gradient(to right, #606060 0%,#c6c6c6 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#c6c6c6',GradientType=1 ); /* IE6-9 */
 }
 #lisaa_pallo {
 	position: fixed;
 	right: 10px;
 	bottom: 10px;
-	width: 40px;
-	height: 40px;
-	background: url(../img/plus.png) no-repeat;
+	width: 80px;
+	height: 54px;
+	background: url(../img/icon_addcomment.png) no-repeat;
 }
 #etusivu {
 	position: fixed;
 	left: 10px;
 	bottom: 10px;
-	width: 40px;
-	height: 40px;
+	width: 80px;
+	height: 57px;
 	background: #00bb44;
+	background: url(../img/icon_fellmannia2.png) no-repeat;
 }
 #palaute_ikkuna {
 	left: 40%;
 	position: absolute;
-	top: 40%;
+	top: 25%;
 	background: none repeat scroll 0 0 #FFF49E;
 	border: 1px solid;
-	height: 200px;
-	width: 350px;
+	height: 450px;
+	width: 400px;
 	padding: 5px;
 	display: none;
 }
-#sulje_ikkuna {
-	background: url(../img/x.png) no-repeat scroll 0 0 transparent;
-	cursor: pointer;
-	height: 32px;
+#lahettaja {
 	position: relative;
-	top: -20px;
-	width: 32px;
+	left: 13px;
+}
+#palautelaatikko {
+	position: relative;
+	left: 50px
 }
 
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -14,12 +14,64 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/icons.css">
+		<link rel="stylesheet" href="css/frontpage.css">
 
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
+		
+	<div id="frontpage">
+		<div id="frontpage-info" class="icon-info"></div>
+		<div id="frontpage-info-box">
+			<div>
+				<div class="icon-info-big"></div><br />
+				Palautepallomeri&copy; on Suomen Muotoilu-säätiön ja Lahden Ammattikorkeakoulun yhteistyössä kehittämä palautejärjestelmä, 
+				jossa palautteen antaminen on sosiaalista ja läpinäkyvää. <br /><br />
+				Nopea vilkaisu kertoo katsojalle, mistä Fellmanniassa puhutaan sekä yleisen tunnelman. Kuka tahansa saa palautepallomeressä&copy; 
+				äänensä kuuluviin nopeasti ja vaivattomasti! <br />
+				Konsensus toimivasta palveluista tai hiertävistä epäkohdista antaa arvokasta tietoa ja lisäeväitä Fellmannian kehittämiseksi.
+			</div>
+		</div>
+		
+		<div id="frontpage-icon-container">
+			<div id="frontpage-gotoapp" class="icon-fellmannia-big"><div>Anna palautetta</div></div>
+			<div id="frontpage-gotomap" class="icon-map-big"><div>Kartta</div></div>
+			<div style="clear:both;"></div>
+		</div>
+		
+		<div id="frontpage-links-container">
+			<div id="frontpage-link-lahti" class="icon-lahti"><div>Tietoa Lahdesta</div></div>
+			<div id="frontpage-link-matkahuolto" class="icon-matkahuolto"><div>Bussiaikataulut</div></div>
+			<div id="frontpage-link-vr" class="icon-vr"><div>Juna-aikataulut</div></div>
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+	
+	<div id="pallomeri">
+		
+		<div id="pallomeri-instructions-box">
+			<div>
+				<div class="icon-fellmannia"></div><br />
+				Fellmannian uudessa palautepallomeressä voit jättää helposti palautetta ilmanvalikkoviidakoita ja monivaiheisia prosesseja.
+				<br /><br />
+				
+				<div class="icon-addcomment-draw"></div><br />
+				Jätä palautteesi kuplaan alakulman + painikkeesta.
+				<br /><br />
+				
+				<div class="icon-like-draw"></div><br />
+				Uusi kupla on syntynyt! <br />
+				Mitä enemmän tykkäyksiä kuplasi saa, sitä suuremmaksi se kasvaa. <br />
+				Voit myös tykätä muiden kuplista peukuttamalla niitä.
+				<br /><br />
+				
+				<div class="icon-feedback-draw"></div>
+				Muistathan, että rakentava palaute kuunnellaan!
+			</div>
+		</div>
 		
 		<div id="kategoriat">
 			<p>Hello world! This is HTML5 Boilerplate.</p>
@@ -33,17 +85,32 @@
 		</div>
 		
 		<div id="palaute_ikkuna">
-			<div id="sulje_ikkuna"></div>
 			<div id="sisalto">
-				<textarea id="palautelaatikko" rows="7" cols="40"></textarea>
-				<br>
-				<input id="submit" type="button" value="Save" title="" name="fb" />
-				<input id="delete" type="button" value="Delete" title="" name="fb" />
+				<form id="palaute">
+					Lähettäjä:
+					<input type="text" id="lahettaja" size="32" /><br />
+					Sähköposti:
+					<input type="text" id="sposti" size="32" /><br />
+					<br />
+					Palaute: <span id="charLeft"> </span> merkkiä jäljellä!<br />
+					<textarea type="text" id="palautelaatikko" rows="4" cols="35"></textarea><br />
+					Haluan vastauksen: <input type="checkbox" id="halu_palaute" /><br />
+					Palautteesi laatu:<br />
+					Positiivista: <input type="radio" id="posit" name="tone" value="0" />
+					Neutraalia: <input type="radio" id="neutr" name="tone" value="1" />
+					Negatiivista: <input type="radio" id="negat" name="tone" value="2" />
+					<br />
+					<br />
+					<input type="button" value="Save" id="save" />
+					<input type="button" value="Cancel" id="cancel" />
+				</form>
 			</div>
 		</div>
 				
 		<div id="etusivu">
 		</div>
+		
+	</div>
 		
         <script src="js/vendor/jquery-1.8.0.min.js"></script>
 		<script src="js/vendor/modernizr-2.6.1.min.js"></script>
