@@ -183,6 +183,13 @@ textarea {
 	padding: 5px;
 	display: none;
 }
+#tiedot {
+	display: none;
+}
+#kategoria_valinta {
+	position: relative;
+	left: 50px;
+}
 #lahettaja {
 	position: relative;
 	left: 13px;
