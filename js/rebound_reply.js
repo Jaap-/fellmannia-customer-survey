@@ -4,7 +4,7 @@ $(document).ready(function() {
 		if (len >= 140) {
 			this.value = this.value.substring(0, 140);
 		}
-		$('#charLeft').text(140 - len);
+		$('#charLeft_rebound').text(140 - len);
 	});
 
 	/*
@@ -21,14 +21,12 @@ $(document).ready(function() {
 	/*
 	 * Palautteen peruuttaminen ja kenttien tyhjennyt
 	 */
-
-
-	$('#cancel').live('click',function(){
-		$('#rebound_reply').fadeOut('fast',function(){
-			$('#rebound_reply').removeClass('windowUserstory windowTask windowDefect windowBlocked windowCompleted');
+	$('#cancel_rebound').live('click',function(){
+		$('#in').fadeOut('fast',function(){
+			$('#in').removeClass('windowUserstory windowTask windowDefect windowBlocked windowCompleted');
 		});
 
-		$('#cancel').click(function(){
+		$('#in').click(function(){
 			$(':input','#reply')
 				.not(':button, :submit, :reset, :hidden')
 				.val('')
@@ -40,7 +38,7 @@ $(document).ready(function() {
 
 
 	
-$('#save').live('click', function(){
+$('#save_rebound').live('click', function(){
 
 	var sender = '';
 	var email = '';
@@ -80,20 +78,16 @@ $('#save').live('click', function(){
 	 */
 	var category = $('#category_select').val();
 
-		
-	/*alert(lahettaja + ', ' + sposti + ', ' + palautelaatikko + ', ' + halu_palaute + ', ' + tone);*/
-
-
 	/*
 	 * Suljetaan palauteikkuna postauksen yhteydessä
 	 */	
-	$("#rebound_reply").fadeOut("fast");
+	$("#in").fadeOut("fast");
 		
 
 	/*
 	 * Tyhjennetään kaikki kentät ja valinnat tallennettaessa.
 	 */
-	$('#save').click(function(){
+	$('#save_rebound').click(function(){
 		$(':input','#reply')
 			.not(':button, :submit, :reset, :hidden')
 			.val('')
@@ -105,9 +99,9 @@ $('#save').live('click', function(){
 	/*
 	 * ÄLÄ KOSKE TÄNNE VIELÄ!!!!!
 	 */
-/*	$.ajax({
+	$.ajax({
 		url: window.serverUrl,
-		data: {act:'addcomment', catid:category, type:type, text:palautelaatikko, contactinfo:lahettaja+':'+sposti, contact:halu_palaute, status:tone},
+		data: {act:'addcomment', catid:category, type:type, text:reboundbox, contactinfo:sender+':'+email, contact:want_answer, status:tone},
 		type: "GET",
 		dataType: 'jsonp',
 		crossDomain: true,
@@ -119,5 +113,5 @@ $('#save').live('click', function(){
 				});
 			}
 		}
-	});*/
+	});
 });

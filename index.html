@@ -85,7 +85,7 @@
 		</div>
 		
 		<div id="palaute_ikkuna">
-			<div id="sisalto">
+			<div class="sisalto">
 				<form id="palaute">
 					<select id="kategoria_valinta">
 						<option selected="selected" value="0">Valitse kategoria</option>
@@ -117,39 +117,45 @@
 					<input type="button" value="Cancel" id="cancel" />
 				</form>
 			</div>
+
 		</div>
 		
-		<div id="rebound_reply">
-			<form id="reply">
-				<select id="category_select">
-					<option selected="selected" value="0">Valitse kategoria</option>
-					<option value="1">Tieto- ja kirjastopalvelut</option>
-					<option value="2">Ravintola ja kahvila</option>
-					<option value="3">Tilat ja tekniikka</option>
-					<option value="4">Kokouspalvelut</option>
-					<option value="5">Aulapalvelut</option>
-				</select>
-				<br />
-				<br />
-				Palaute: <span id="charLeft"> </span> merkkiä jäljellä!<br />
-				<textarea type="text" id="reboundbox" rows="4" cols="35"></textarea><br /><br />
-				Haluan vastauksen: <input type="checkbox" id="want_answer" /><br />
-				<div id="info">
-					Lähettäjä:
-					<input type="text" id="sender" size="32" /><br />
-					Sähköposti:
-					<input type="text" id="email" size="32" /><br />
-				</div>
-				<br /><br />
-				Palautteesi laatu:<br />
-				Positiivista: <input type="radio" id="posit" name="tone" value="0" />
-				Neutraalia: <input type="radio" id="neutr" name="tone" value="1" />
-				Negatiivista: <input type="radio" id="negat" name="tone" value="2" />
-				<br />
-				<br />
-				<input type="button" value="Save" id="save" />
-				<input type="button" value="Cancel" id="cancel" />
-			</form>
+		<div id="rebound">
+		</div>
+		
+		<div id="in">
+			<div id="rebound_reply">
+				<form id="reply">
+					<select id="category_select">
+						<option selected="selected" value="0">Valitse kategoria</option>
+						<option value="1">Tieto- ja kirjastopalvelut</option>
+						<option value="2">Ravintola ja kahvila</option>
+						<option value="3">Tilat ja tekniikka</option>
+						<option value="4">Kokouspalvelut</option>
+						<option value="5">Aulapalvelut</option>
+					</select>
+					<br />
+					<br />
+					Palaute: <span id="charLeft_rebound"> </span> merkkiä jäljellä!<br />
+					<textarea type="text" id="reboundbox" rows="4" cols="35"></textarea><br /><br />
+					Haluan vastauksen: <input type="checkbox" id="want_answer" /><br />
+					<div id="info">
+						Lähettäjä:
+						<input type="text" id="sender" size="32" /><br />
+						Sähköposti:
+						<input type="text" id="email" size="32" /><br />
+					</div>
+					<br /><br />
+					Palautteesi laatu:<br />
+					Positiivista: <input type="radio" id="posit_rebound" name="tone" value="0" />
+					Neutraalia: <input type="radio" id="neutr_rebound" name="tone" value="1" />
+					Negatiivista: <input type="radio" id="negat_rebound" name="tone" value="2" />
+					<br />
+					<br />
+					<input type="button" value="Save" id="save_rebound" />
+					<input type="button" value="Cancel" id="cancel_rebound" />
+				</form>
+			</div>
 		</div>
 				
 		<div id="etusivu">
@@ -165,6 +171,7 @@
 		<script src="js/frontpage.js"></script>
 		<script src="js/feedback.js"></script>
 		<script src="js/rebound_reply.js"></script>
+		<script src="js/rebound.js"></script>
 		
     </body>
 </html>

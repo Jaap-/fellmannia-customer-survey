@@ -169,22 +169,47 @@ textarea {
 	bottom: 10px;
 	width: 80px;
 	height: 57px;
-	background: #00bb44;
 	background: url(../img/icon_fellmannia2.png) no-repeat;
 }
+
+#rebound {
+	background: green no-repeat;
+	left: 10px;
+	bottom: 80px;
+	height: 40px;
+	width: 40px;
+	position: fixed;
+}
+
 #palaute_ikkuna {
+	background:url(../img/bg_darktransparent.png);
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:100;
+	display: none;
+}
+#palaute_ikkuna > div{
+	color:#fff;
 	left: 40%;
 	position: absolute;
 	top: 25%;
-	background: none repeat scroll 0 0 #FFF49E;
-	border: 1px solid;
 	height: 450px;
 	width: 400px;
 	padding: 5px;
-	display: none;
 }
 #tiedot {
 	display: none;
+}
+#save {
+	background-color: #666666;
+	color:#fff;
+}
+#cancel {
+	background-color: #666666;
+	color:#fff;
 }
 #kategoria_valinta {
 	position: relative;
@@ -198,8 +223,47 @@ textarea {
 	position: relative;
 	left: 50px
 }
-#rebound_reply{
-	/* css goes here like in palaute_ikkuna*/
+#in {
+	background:url(../img/bg_darktransparent.png);
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:100;
+	display: none;
+}
+#in > div {
+	color:#fff;
+	left: 40%;
+	position: absolute;
+	top: 25%;
+	height: 450px;
+	width: 400px;
+	padding: 5px;
+}
+#info {
+	display: none;
+}
+#category_select {
+	position: relative;
+	left: 50px;
+}
+#sender {
+	position: relative;
+	left: 13px;
+}
+#reboundbox {
+	position: relative;
+	left: 50px
+}
+#save_rebound {
+	background-color: #666666;
+	color:#fff;
+}
+#cancel_rebound {
+	background-color: #666666;
+	color:#fff;
 }
 
 
