@@ -271,6 +271,10 @@ textarea {
 	color: #fff;
 	left: 50px;
 }
+#kategoria_valinta option {
+	background: url(../img/bg_darktransparent.png);
+	color: #fff;
+}
 #lahettaja {
 	position: relative;
 	background:url(../img/bg_darktransparent.png);
@@ -330,6 +334,10 @@ textarea {
 	background: url(../img/bg_darktransparent.png);
 	color: #fff;
 	left: 50px;
+}
+#category_select option {
+	background: url(../img/bg_darktransparent.png);
+	color: #fff;
 }
 #sender {
 	position: relative;
