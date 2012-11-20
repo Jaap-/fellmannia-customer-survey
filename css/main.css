@@ -106,6 +106,10 @@ textarea {
 #pallomeri {
 	display: none;
 }
+
+/*
+ * Pallomeren ohjeistus
+ */
 #pallomeri-instructions-box {
 	background:url(../img/bg_darktransparent.png);
 	position:absolute;
@@ -127,33 +131,75 @@ textarea {
 	background-position:top center;
 	margin:0 auto;
 }
-#kategoriat {
+
+/*
+ * kategoriavalikko
+ */
+#categories{
 	width: 100%;
 	height: 60px;
-	/*background: #397;*/
+	overflow-x: auto;
+	overflow-y: hidden;
+	float: left;
+	display: inline;
+	white-space: nowrap;
 	overflow: hidden;
-	background: #606060; /* Old browsers */
-	background: -moz-linear-gradient(left, #606060 0%, #c6c6c6 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#606060), color-stop(100%,#c6c6c6)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* IE10+ */
-	background: linear-gradient(to right, #606060 0%,#c6c6c6 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#c6c6c6',GradientType=1 ); /* IE6-9 */
+	color: #ffffff;
+	font-family: 'Antic Slab', serif;
 }
+#container{
+	width: 100%;
+	height: 60px;
+	display: inline;
+	overflow: hidden;
+	white-space: nowrap;
+	position: absolute;
+}
+.header{
+	float: left;
+	height: 60px;
+	text-align: center;
+	display: inline-block;
+	position: fixed;
+}
+#container2{
+	width: 100%;
+	height: 40px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	float: left;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	color: #ffffff;
+	font-family: 'Antic Slab', serif;
+}
+#instructions{
+	width: 100%;
+	height: 40px;
+	display: inline;
+	overflow: hidden;
+	white-space: nowrap;
+	position: absolute;	
+}
+.instructiontext{
+	float: left;
+	height: 40px;
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+	position: fixed;
+}
+
+/*
+ * Pallomeri tulee tähän
+ */
 #pallot {
 	position: fixed;
 	width: 100%;
+	top: 100px;
 	/*background: #916;*/
 	overflow: hidden;
-	background: #606060; /* Old browsers */
-	background: -moz-linear-gradient(left, #606060 0%, #c6c6c6 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#606060), color-stop(100%,#c6c6c6)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* IE10+ */
-	background: linear-gradient(to right, #606060 0%,#c6c6c6 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#c6c6c6',GradientType=1 ); /* IE6-9 */
 }
 #lisaa_pallo {
 	position: fixed;
