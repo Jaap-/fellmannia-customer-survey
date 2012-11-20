@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$('#reboundbox').keyup(function() {
+	$('#reboundbox').keydown(function() {
 		var len = this.value.length;
 		if (len >= 140) {
 			this.value = this.value.substring(0, 140);

@@ -6,4 +6,9 @@
 			$("#in").fadeIn("slow");
 		}
 	});
+	
+	$('#rebound_reply input:radio').addClass('input_hidden');
+	$('#rebound_reply label').click(function() {
+		$(this).addClass('selected').siblings().removeClass('selected');
+	});
 });

@@ -162,6 +162,7 @@ textarea {
 	width: 80px;
 	height: 54px;
 	background: url(../img/icon_addcomment.png) no-repeat;
+	cursor: pointer;
 }
 #etusivu {
 	position: fixed;
@@ -170,6 +171,7 @@ textarea {
 	width: 80px;
 	height: 57px;
 	background: url(../img/icon_fellmannia2.png) no-repeat;
+	cursor: pointer;
 }
 
 #rebound {
@@ -179,8 +181,12 @@ textarea {
 	height: 40px;
 	width: 40px;
 	position: fixed;
+	cursor: pointer;
 }
 
+/*
+ * Palauteen luonti
+ */
 #palaute_ikkuna {
 	background:url(../img/bg_darktransparent.png);
 	position:absolute;
@@ -205,36 +211,64 @@ textarea {
 }
 #save {
 	background-color: #666666;
+	border-color: #666666;
 	color:#fff;
 }
 #cancel {
 	background-color: #666666;
+	border-color: #666666;
 	color:#fff;
 }
 #kategoria_valinta {
 	position: relative;
+	background:url(../img/bg_darktransparent.png);
+	color: #fff;
 	left: 50px;
 }
 #lahettaja {
 	position: relative;
+	background:url(../img/bg_darktransparent.png);
+	color: #fff;
 	left: 13px;
+}
+#sposti{
+	background:url(../img/bg_darktransparent.png);
+	color: #fff;
 }
 #palautelaatikko {
 	position: relative;
+	background:url(../img/bg_darktransparent.png);
+	color: #fff;
 	left: 50px
 }
+#posit_like {
+	height: 40px;
+	width: 40px;
+}
+#neutr_like {
+	height: 40px;
+	width: 40px;
+}
+#negat_like {
+	height: 40px;
+	width: 40px;
+}
+
+/*
+ * Vastapallon luonti
+ */
 #in {
-	background:url(../img/bg_darktransparent.png);
-	position:absolute;
-	width:100%;
-	height:100%;
-	top:0;
-	left:0;
-	z-index:100;
+	background: url(../img/bg_darktransparent.png);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 100;
 	display: none;
 }
 #in > div {
-	color:#fff;
+	color: #fff;
 	left: 40%;
 	position: absolute;
 	top: 25%;
@@ -247,23 +281,79 @@ textarea {
 }
 #category_select {
 	position: relative;
+	background: url(../img/bg_darktransparent.png);
+	color: #fff;
 	left: 50px;
 }
 #sender {
 	position: relative;
+	background: url(../img/bg_darktransparent.png);
+	color: #fff;
 	left: 13px;
+}
+#email {
+	background: url(../img/bg_darktransparent.png);
+	color: #fff;
 }
 #reboundbox {
 	position: relative;
+	background: url(../img/bg_darktransparent.png);
+	color: #fff;
 	left: 50px
 }
 #save_rebound {
 	background-color: #666666;
+	border-color: #666666;
 	color:#fff;
 }
 #cancel_rebound {
 	background-color: #666666;
+	border-color: #666666;
 	color:#fff;
+}
+#posit_rebound_like {
+	height: 40px;
+	width: 40px;
+}
+#neutr_rebound_like {
+	height: 40px;
+	width: 40px;
+}
+#negat_rebound_like {
+	height: 40px;
+	width: 40px;
+}
+
+/*
+ * Palautteen laadun valinta
+ */
+#sisalto label {
+    display: inline-block;
+    cursor: pointer;
+}
+#sisalto label:hover {
+    background-color: #757575;
+}
+#sisalto label img {
+    padding: 3px;  
+}
+
+.input_hidden {
+    position: absolute;
+    left: -9999px;
+}
+.selected {
+    background-color: #858585;
+}
+#rebound_reply label {
+    display: inline-block;
+    cursor: pointer;
+}
+#rebound_reply label:hover {
+    background-color: #757575;
+}
+#rebound_reply label img {
+    padding: 3px; 
 }
 
 

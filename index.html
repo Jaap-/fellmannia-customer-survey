@@ -85,7 +85,7 @@
 		</div>
 		
 		<div id="palaute_ikkuna">
-			<div class="sisalto">
+			<div id="sisalto">
 				<form id="palaute">
 					<select id="kategoria_valinta">
 						<option selected="selected" value="0">Valitse kategoria</option>
@@ -108,9 +108,9 @@
 					</div>
 					<br /><br />
 					Palautteesi laatu:<br />
-					Positiivista: <input type="radio" id="posit" name="tone" value="0" />
-					Neutraalia: <input type="radio" id="neutr" name="tone" value="1" />
-					Negatiivista: <input type="radio" id="negat" name="tone" value="2" />
+					<input type="radio" id="posit" name="tone" value="0" /><label for="posit"><img id="posit_like" src="img/icon_like_positive_active.png" /></label>
+					<input type="radio" id="neutr" name="tone" value="1" /><label for="neutr"><img id="neutr_like" src="img/icon_like_neutral_active.png" /></label>
+					<input type="radio" id="negat" name="tone" value="2" /><label for="negat"><img id="negat_like" src="img/icon_like_negative_active.png" /></label>
 					<br />
 					<br />
 					<input type="button" value="Save" id="save" />
@@ -147,9 +147,9 @@
 					</div>
 					<br /><br />
 					Palautteesi laatu:<br />
-					Positiivista: <input type="radio" id="posit_rebound" name="tone" value="0" />
-					Neutraalia: <input type="radio" id="neutr_rebound" name="tone" value="1" />
-					Negatiivista: <input type="radio" id="negat_rebound" name="tone" value="2" />
+					<input type="radio" id="posit_rebound" name="tone" value="0" /><label for="posit_rebound"><img id="posit_rebound_like" src="img/icon_like_positive_active.png" /></label>
+					<input type="radio" id="neutr_rebound" name="tone" value="1" /><label for="neutr_rebound"><img id="neutr_rebound_like" src="img/icon_like_neutral_active.png" /></label>
+					<input type="radio" id="negat_rebound" name="tone" value="2" /><label for="negat_rebound"><img id="negat_rebound_like" src="img/icon_like_negative_active.png" /></label>
 					<br />
 					<br />
 					<input type="button" value="Save" id="save_rebound" />
