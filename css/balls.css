@@ -1,0 +1,38 @@
+/*
+ * Pallot
+ */
+
+.sphere {text-align:center; border:1px solid rgba(0,0,0,0.2); _box-shadow:inset 0 0 10px #fff; border-radius:9999px; _outline:1px solid #f00;}
+.sphere p {padding:10px; width:90%; color:#777; _outline:1px solid #000; }
+
+.sphere-top {top:10px;}
+.sphere-bottom {bottom:10px;}
+.like-icon {width:80px; height:88px; background:url(../img/icon_like_positive.png) no-repeat 50% 100%;}
+.dislike-icon {width:80px; height:88px; background:url(../img/icon_like_negative.png) no-repeat 50% 0;}
+
+.grey {
+  background: #ccc;
+  background: -webkit-radial-gradient(50% 50%, #fff, #ccc);
+  background: -moz-radial-gradient(50% 50%, #fff, #ccc);
+  background: -ms-radial-gradient(80% 80% #fff, #ccc);
+  background: -o-radial-gradient(80% 80% #fff, #ccc);
+  background: radial-gradient(50% 50%, #fff, #ccc);
+}
+.yellow {
+  background: #ffa;
+  background: -webkit-radial-gradient(50% 50%, #fff, #ffa);
+  background: -moz-radial-gradient(50% 50%, #fff, #ffa);
+  background: -ms-radial-gradient(100% 100%, #fff, #ffa);
+  background: -o-radial-gradient(100% 100%, #fff, #ffa);
+  background: radial-gradient(50% 50%, #fff, #ffa);
+}
+.green {
+  background: #cfc;
+  background: -webkit-radial-gradient(50% 50%, #fff, #cfc);
+  background: -moz-radial-gradient(50% 50%, #fff, #cfc);
+  background: -ms-radial-gradient(100% 100%, #fff, #cfc);
+  background: -o-radial-gradient(100% 100%, #fff, #cfc);
+  background: radial-gradient(50% 50%, #fff, #cfc);
+}
+
+.dimensions {position:absolute; left:10px; bottom:10px; font-size:12px;}
