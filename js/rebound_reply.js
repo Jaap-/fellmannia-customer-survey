@@ -1,4 +1,23 @@
+
+
 $(document).ready(function() {
+	$.ajax({
+		url: window.serverUrl,
+		data: {act:'getcategories'},
+		type: "GET",
+		dataType: 'jsonp',
+		crossDomain: true,
+		cache : "false",
+		success: function(data){
+			if(data.status != 0){
+				$(data.categories).each(function(i,item){
+					$('#category_select').append('<option value="'+item.id+'">'+item.name+'</option>');
+				});				
+			}
+		}
+	});
+
+
 	$('#reboundbox').keydown(function() {
 		var len = this.value.length;
 		if (len >= 140) {
