@@ -37,7 +37,7 @@ function changewidth(){														// adjust width of category divs
 
 function transitionleft(){													// swipe left
 	$("#instruction"+(catCount-1+position)).hide();
-	width = $(window).width()/3;
+	width = $("#header5").innerWidth();
 	$("#container").animate({"margin-left":"-="+width+"px"}, "slow");		// category movement by animating margin change
 	position++;																// updates the indicator of selected category
 	if(position>catCount){													// checks if categories are going too far
@@ -49,7 +49,7 @@ function transitionleft(){													// swipe left
 
 function transitionright(){													// swipe right
 	$("#instruction"+(catCount-1+position)).hide();
-	width = $(window).width()/3;
+	width = $("#header5").innerWidth();
 	$("#container").animate({"margin-left":"+="+width+"px"}, "slow");
 	position--;
 	if(position<1){
