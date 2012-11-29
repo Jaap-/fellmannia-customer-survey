@@ -1,3 +1,34 @@
+Ôªø
+/*
+ * palautteenanto toimii fadeIn ja fadeOut :ina, sulkeminen onnistuu t√§ll√§ hetkell√§
+ * sek√§ sulje ruksista, ett√§ klikkaamalla uudelleen palautepallon luonti
+ * varmaan tuolla ruksisulkemisella menn√§√§n? ei ole tarvetta sulkea palautteenantoa pallonluontipainikkeesta?
+ */
+ $(document).ready(function()
+ {
+	$(document).on("click", "#lisaa_pallo",function()
+	{
+		if ($("div#palaute_ikkuna").is(":visible"))
+		{
+			$("#palaute_ikkuna").fadeOut("slow");
+		} else {
+			$("#palaute_ikkuna").fadeIn("slow");
+		}
+		
+		/*
+		 * N√§ytet√§√§n j√§ljell√§ olevien merkkien m√§√§r√§
+		 */
+		$('#charLeft').text(140);
+	});
 
-/* * palautteenanto toimii fadeIn ja fadeOut :ina, sulkeminen onnistuu t‰ll‰ hetkell‰ * sek‰ sulje ruksista, ett‰ klikkaamalla uudelleen palautepallon luonti * varmaan tuolla ruksisulkemisella menn‰‰n? ei ole tarvetta sulkea palautteenantoa pallonluontipainikkeesta?  */
- $(document).ready(function() {	$(document).on("click", "#lisaa_pallo",function() {			if ($("div#palaute_ikkuna").is(":visible")) {			$("#palaute_ikkuna").fadeOut("slow");		} else {			$("#palaute_ikkuna").fadeIn("slow");		}	});			/*	 * Lis‰t‰‰n palautteen laaduille class, joka m‰‰ritt‰‰ ne olemaan hidden,	 * main.css:ss‰ siirret‰‰n varsinaiset radio inputit reilusti sivulle piiloon	 * ja korvataan ne palautteen laatua kuvaavilla kuvakkeilla, joilla on radio inputtien toiminta	 */	$('#sisalto input:radio').addClass('input_hidden');	$('#sisalto label').click(function() {		$(this).addClass('selected').siblings().removeClass('selected');	});});
+	/*
+	 * Lis√§t√§√§n palautteen laaduille class, joka m√§√§ritt√§√§ ne olemaan hidden,
+	 * main.css:ss√§ siirret√§√§n varsinaiset radio inputit reilusti sivulle piiloon
+	 * ja korvataan ne palautteen laatua kuvaavilla kuvakkeilla, joilla on radio inputtien toiminta
+	 */
+	$('#sisalto input:radio').addClass('input_hidden');
+	$('#sisalto label').click(function()
+	{
+		$(this).addClass('selected').siblings().removeClass('selected');
+	});
+ });
