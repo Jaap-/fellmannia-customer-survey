@@ -23,14 +23,32 @@ body {
     line-height: 1.4;
 	padding: 0;
 	margin: 0;
-	background: #606060; /* Old browsers */
-	background: -moz-linear-gradient(left, #606060 0%, #c6c6c6 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#606060), color-stop(100%,#c6c6c6)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(left, #606060 0%,#c6c6c6 100%); /* IE10+ */
-	background: linear-gradient(to right, #606060 0%,#c6c6c6 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#c6c6c6',GradientType=1 ); /* IE6-9 */
+//	background: #606060 !important; /* Old browsers */
+//	background: -moz-linear-gradient(left, #606060 0%, #c6c6c6 100%) !important; /* FF3.6+ */
+//	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#606060), color-stop(100%,#c6c6c6)) !important; /* Chrome,Safari4+ */
+//	background: -webkit-linear-gradient(left, #606060 0%,#c6c6c6 100%) !important; /* Chrome10+,Safari5.1+ */
+//	background: -o-linear-gradient(left, #606060 0%,#c6c6c6 100%) !important; /* Opera 11.10+ */
+//	background: -ms-linear-gradient(left, #606060 0%,#c6c6c6 100%) !important; /* IE10+ */
+//	background: linear-gradient(to right, #606060 0%,#c6c6c6 100%) !important; /* W3C */
+//	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#c6c6c6',GradientType=1 ) !important; /* IE6-9 */
+}
+
+#background {
+	position:fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width:100%;
+	min-height: 100%;
+	margin: auto;
+	background: #8c8d8f; /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #8c8d8f 0%, #d7e6ae 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#8c8d8f), color-stop(100%,#d7e6ae)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* IE10+ */
+	background: linear-gradient(135deg, #8c8d8f 0%,#d7e6ae 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c8d8f', endColorstr='#d7e6ae',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 /*
@@ -118,6 +136,7 @@ textarea {
 	top:0;
 	left:0;
 	z-index:100;
+	overflow:auto;
 }
 #pallomeri-instructions-box > div {
 	width:500px;
@@ -245,12 +264,10 @@ textarea {
 }
 #palaute_ikkuna > div{
 	color:#fff;
-	left: 40%;
-	position: absolute;
-	top: 25%;
 	height: 450px;
-	width: 400px;
+	width: 330px;
 	padding: 5px;
+	margin:10% auto;
 }
 #tiedot {
 	display: none;
@@ -270,27 +287,34 @@ textarea {
 	background:url(../img/bg_darktransparent.png);
 	color: #fff;
 	left: 50px;
+	border: 0 none;
+    border-radius: 10px 10px 10px 10px;
+	padding:5px;
 }
 #kategoria_valinta option {
-	background: url(../img/bg_darktransparent.png);
+	background: #222222;
 	color: #fff;
 }
 #lahettaja {
-	position: relative;
-	background:url(../img/bg_darktransparent.png);
-	color: #fff;
-	left: 13px;
+	background: none repeat scroll 0 0 #000000;
+    border: 1px solid #000000;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    padding: 5px;
 }
 #sposti{
-	background:url(../img/bg_darktransparent.png);
-	color: #fff;
+	background: none repeat scroll 0 0 #000000;
+    border: 1px solid #000000;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    padding: 5px;
 }
 #palautelaatikko {
-	position: relative;
-	background:url(../img/bg_darktransparent.png);
-	color: #fff;
-	left: 50px
+	background: url(../img/bg_textarea.png) repeat-x scroll 0 0 transparent;
+    border: 0 none;
+    color: #FFFFFF;
 }
+
 #posit_like {
 	height: 40px;
 	width: 40px;
@@ -300,80 +324,6 @@ textarea {
 	width: 40px;
 }
 #negat_like {
-	height: 40px;
-	width: 40px;
-}
-
-/*
- * Vastapallon luonti
- */
-#in {
-	background: url(../img/bg_darktransparent.png);
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	z-index: 100;
-	display: none;
-}
-#in > div {
-	color: #fff;
-	left: 40%;
-	position: absolute;
-	top: 25%;
-	height: 450px;
-	width: 400px;
-	padding: 5px;
-}
-#info {
-	display: none;
-}
-#category_select {
-	position: relative;
-	background: url(../img/bg_darktransparent.png);
-	color: #fff;
-	left: 50px;
-}
-#category_select option {
-	background: url(../img/bg_darktransparent.png);
-	color: #fff;
-}
-#sender {
-	position: relative;
-	background: url(../img/bg_darktransparent.png);
-	color: #fff;
-	left: 13px;
-}
-#email {
-	background: url(../img/bg_darktransparent.png);
-	color: #fff;
-}
-#reboundbox {
-	position: relative;
-	background: url(../img/bg_darktransparent.png);
-	color: #fff;
-	left: 50px
-}
-#save_rebound {
-	background-color: #666666;
-	border-color: #666666;
-	color:#fff;
-}
-#cancel_rebound {
-	background-color: #666666;
-	border-color: #666666;
-	color:#fff;
-}
-#posit_rebound_like {
-	height: 40px;
-	width: 40px;
-}
-#neutr_rebound_like {
-	height: 40px;
-	width: 40px;
-}
-#negat_rebound_like {
 	height: 40px;
 	width: 40px;
 }
