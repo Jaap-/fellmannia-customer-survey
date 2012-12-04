@@ -1,6 +1,11 @@
-
 /* Design for a width smaller than 767px */
 @media only screen and (max-width: 767px) {
+	#frontpage-info{
+		background:url(../img/icon_info.png) no-repeat;
+		width:35px !important;
+		height:35px !important;
+	}
+	
 	#frontpage-info-box > div{
 		width:80% !important;
 		font-size:10px;

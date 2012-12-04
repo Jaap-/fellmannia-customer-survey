@@ -1,4 +1,3 @@
-
 // Asetukset
 	var settings = {
 		// Pallojen minikoko pikselein?
@@ -11,7 +10,7 @@
 
 $(document).ready(function(d) {
 	loadBalls(5);
-
+	
 	// Liikkumis-funktion suoritus
 	shuffle();
 	
@@ -68,7 +67,6 @@ $(document).ready(function(d) {
 		});
 		return false;
 	});
-
 	  
 	// Pallon valinta ja siirto keskelle
 	$('#pallot').on('click', '.sphere', function() {
