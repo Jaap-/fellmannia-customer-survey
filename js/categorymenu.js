@@ -51,10 +51,11 @@ function transitionleft(){																// swipe left
 			n = $("#header"+position).attr("data-id");
 			$("#container").animate({"margin-left":"+="+width+"px"}, "slow", function(){	// if categories are going too far move them back
 				loadBalls(n);
+				$("#instruction"+position).show();
 			});
 		}
+		$("#instruction"+position).show();
 	});
-	$("#instruction"+position).show();
 }
 
 function transitionright(){																// swipe right
@@ -69,11 +70,11 @@ function transitionright(){																// swipe right
 			n = $("#header"+position).attr("data-id");
 			$("#container").animate({"margin-left":"-="+width+"px"}, "slow", function(){
 				loadBalls(n);
+				$("#instruction"+position).show();
 			});
 		}
-	});
-	
 	$("#instruction"+position).show();	
+	});
 }
 
 
