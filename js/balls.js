@@ -1,3 +1,4 @@
+
 // Asetukset
 	var settings = {
 		// Pallojen minikoko pikselein?
