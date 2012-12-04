@@ -1,15 +1,220 @@
-﻿
-$(document).ready(function() {	$.ajax({		url: window.serverUrl,		data: {act:'getcategories'},		type: "GET",		dataType: 'jsonp',		crossDomain: true,		cache : "false",		success: function(data){			if(data.status != 0){				$(data.categories).each(function(i,item){					$('#kategoria_valinta').append('<option value="'+item.id+'">'+item.name+'</option>');				});							}		}	});	$('#palautelaatikko').keydown(function() {		var len = this.value.length;		if (len >= 140) {			this.value = this.value.substring(0, 140);		}		$('#charLeft').text(140 - len);	});	/*	 * fadeIn lähettäjän tiedoille, mikäli haluaa vastauksen...	 */
-	$(document).on("click", "#halu_palaute",function() {			if ($("div#tiedot").is(":visible")) {				$("div#tiedot").fadeOut("fast");				} else {					$("div#tiedot").fadeIn("fast");				}	});
-	/*	 * Palautteen peruuttaminen ja kenttien tyhjennyt	 */
-	$('#cancel').click(function(){		$('#palaute_ikkuna').fadeOut('fast');		$('#cancel').click(function(){			$(':input','#palaute')				.not(':button, :submit, :reset, :hidden')				.val('')				.removeAttr('checked')				.removeAttr('selected');		});    	});
-		$('#save').click(function(){		var lahettaja = '';		var sposti = '';
-		/*		 * Haetaan lähettäjän nimi, sähköposti, mikäli halu_palaute valittu		 */		if($('input[type="checkbox"]#halu_palaute').is(':checked')) {			lahettaja = $('#lahettaja').val();			sposti = $('#sposti').val();			
-			if(lahettaja == '' && sposti== '' )			{				var type=0;			}else{				var type=2;			}							var halu_palaute = 1;		}else{			var halu_palaute = 0;		}		/*		 * Haetaan palaute		 */
-		var palautelaatikko = $('#palautelaatikko').val();
-		/*		 * Haetaan palautteen laatu		 */		var tone = $('#palaute input[name=tone]:checked').val();					/*		 * Haetaan kategoria, jolle palaute osoitetaan		 */		var category = $('#kategoria_valinta').val();
-					/*alert(lahettaja + ', ' + sposti + ', ' + palautelaatikko + ', ' + halu_palaute + ', ' + tone);*/
-		/*		 * Suljetaan palauteikkuna postauksen yhteydessä		 */			$("#palaute_ikkuna").fadeOut("fast");   		/*		 * Tyhjennetään kaikki kentät ja valinnat tallennettaessa.		 */		$(':input,#palaute')			.not(':button, :submit, :reset, :hidden')			.val('')			.removeAttr('checked')			.removeAttr('selected'); 				console.log(category, palautelaatikko);		
-		$.ajax({			url: window.serverUrl,			data: {act:'addcomment', catid:category, type:type, text:palautelaatikko, contactinfo:lahettaja+':'+sposti, contact:halu_palaute, status:tone},			type: "GET",			dataType: 'jsonp',			crossDomain: true,			cache : "false",			success: function(data){				if(data.status != 0){						$.each(data.errors, function(i,item){						alert(item[i]);					});				}			}		});	});});
-
-   
+﻿
+$(document).ready(function() {
+	$.ajax({
+		url: window.serverUrl,
+		data: {act:'getcategories'},
+		type: "GET",
+		dataType: 'jsonp',
+		crossDomain: true,
+		cache : "false",
+		success: function(data){
+		if(data.status != 0){
+			$(data.categories).each(function(i,item){
+			$('#kategoria_valinta').append('<option value="'+item.id+'">'+item.name+'</option>');
+			});
+		}
+		}
+	});
+	
+	$('#palautelaatikko').keydown(function() {
+		var len = this.value.length;
+		if (len >= 140) {
+			this.value = this.value.substring(0, 140);
+		}
+		$('#charLeft').text(140 - len);
+	});
+		
+	/*
+	 * fadeIn lähettäjän tiedoille, mikäli haluaa vastauksen...
+	 */
+	$(document).on("click", "#halu_palaute",function() {
+		if ($("div#tiedot").is(":visible")) {
+			$("div#tiedot").fadeOut("fast");
+		} else {
+			$("div#tiedot").fadeIn("fast");
+		}
+	});
+	
+	/*
+	* Palautteen peruuttaminen ja kenttien tyhjennyt
+	*/
+	$('#cancel').click(function(){
+		$('#palaute_ikkuna').fadeOut('fast');
+		$('#cancel').click(function(){
+			$(':input','#palaute')
+				.not(':button, :submit, :reset, :hidden')
+				.val('')
+				.removeAttr('checked')
+				.removeAttr('selected');
+		});
+	});
+		
+	$('#save').click(function(){
+	
+		/*
+		 * Haetaan kategoria, jolle palaute osoitetaan
+		 */
+		var category = $('#kategoria_valinta').val();
+			
+		/*
+		 * Kategoriavalinnan tarkistus
+		 */
+		$(".error").hide();
+		var hasErrorCat = false;
+		if(category == 0)
+		{
+			$("#error_msg_cat").html('<span class="error">Valitse kategoria.</span>');
+			hasErrorCat = true;
+		}else{
+		
+			/*
+			 * Haetaan palautteen laatu
+			 */
+			var tone = $('#palaute input[name=tone]:checked').val();
+			
+			/*
+			 * Palautteen laadun valinnan tarkistus
+			 */
+			$(".error").hide();
+			var hasErrorTone = false;
+			if(tone != 0 != 1 != 2)
+			{
+				$("#error_msg_tone").html('<span class="error">Valitse palautteen laatu.</span>');
+				hasErrorTone = true;
+			}else{
+			
+				if($('input[type="checkbox"]#halu_palaute').is(':checked'))
+				{
+					/*
+					 * Tämä toteutetaan, mikäli halu_palaute on valittu
+					 */
+
+					var lahettaja = '';
+					var sposti = '';
+							
+					/*
+					 * Haetaan lähettäjän nimi, sähköposti, mikäli halu_palaute valittu
+					 */
+					lahettaja = $('#lahettaja').val();
+					sposti = $('#sposti').val();			
+							
+					var type=2;
+					var halu_palaute = 1;
+							
+					/*
+					 * Haetaan palaute
+					 */
+					var palautelaatikko = $('#palautelaatikko').val();
+							
+					/*
+					 * Haetaan palautteen laatu
+					 */
+					var tone = $('#palaute input[name=tone]:checked').val();
+							
+					/*
+					 * Sähköpostin tarkistus
+					 */
+					if($('input[type="checkbox"]#halu_palaute').is(':checked'))
+					{
+						$(".error").hide();
+						var hasError = false;
+						var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+						var emailaddressVal = $("#sposti").val();
+						if(emailaddressVal == '') // Mikäli sposti on tyhjä
+						{
+							$("#sposti").after('<span class="error">Tarkasta sähköpostiosoite.</span>');
+							hasError = true;
+						}
+						else if(!emailReg.test(emailaddressVal)) // Mikäli sposti ei vastaa oletuksia
+						{
+							$("#sposti").after('<span class="error">Tarkasta sähköpostiosoite.</span>');
+							hasError = true;
+						}
+						if(hasError == true)
+						{
+							return false;
+						}else{ // Mikäli sähköposti on ok, lähetetään tiedot
+							$.ajax({
+							url: window.serverUrl,
+							data: {act:'addcomment', catid:category, type:type, text:palautelaatikko, contactinfo:lahettaja+':'+sposti, contact:halu_palaute, status:tone},
+							type: "GET",
+							dataType: 'jsonp',
+							crossDomain: true,
+							cache : "false",
+							success: function(data){
+								if(data.status != 0){
+									$.each(data.errors, function(i,item){
+										alert(item[i]);
+									});
+								}
+							}
+						});
+						}
+					}
+						
+				} else {
+					/*
+					 * Tämä toteutetaan, mikäli halu_palautetta ei ole valittu
+					 */
+						
+					/*
+					 * Määritetään, ettei haluta palautetta
+					 */
+					var lahettaja = '';
+					var sposti = '';
+					var type=0;	
+					var halu_palaute = 0;
+
+					/*
+					 * Haetaan palaute
+					 */
+					var palautelaatikko = $('#palautelaatikko').val();
+						
+					/*
+					 * Suljetaan palauteikkuna postauksen yhteydessä
+					 */
+					$("#palaute_ikkuna").fadeOut("fast");
+
+					/*
+					 * Tyhjennetään kaikki kentät ja valinnat tallennettaessa.
+					 */
+					$(':input,#palaute')
+						.not(':button, :submit, :reset, :hidden')
+						.val('')
+						.removeAttr('checked')
+						.removeAttr('selected');
+					
+					/*
+					 * Lähetetään palaute
+					 */
+					$.ajax({
+						url: window.serverUrl,
+						data: {act:'addcomment', catid:category, type:type, text:palautelaatikko, contactinfo:lahettaja+':'+sposti, contact:halu_palaute, status:tone},
+						type: "GET",
+						dataType: 'jsonp',
+						crossDomain: true,
+						cache : "false",
+						success: function(data){
+							/*if(data.status = 1)
+							{
+								$.each(data.errors, function(i,item)
+								{
+									alert(item);
+								});
+							}*/
+							/*if(data.status != 0){
+								$.each(data.errors, function(i,item){
+									alert(item);
+								});
+							}*/
+						}
+					});
+				}
+			}
+			if(hasErrorTone == true) { return false; }
+		}
+		if(hasErrorCat == true) { return false; }
+		return false;
+	});
+});
+
