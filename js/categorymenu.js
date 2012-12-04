@@ -39,32 +39,41 @@ function changewidth(){														// adjust width of category divs
 	}
 }
 
-function transitionleft(){													// swipe left
+function transitionleft(){																// swipe left
 	$("#instruction"+position).hide();
 	width = $("#header5").innerWidth();
-	$("#container").animate({"margin-left":"-="+width+"px"}, "slow");		// category movement by animating margin change
-	position++;																// updates the indicator of selected category
-	if(position>catCount-1){												// checks if categories are going too far
-		$("#container").animate({"margin-left":"+="+width+"px"}, "slow");	// if categories are going too far move them back
-		position--;															// update position indicator
-	}
-	$("#instruction"+position).show();
+	position++;																			// updates the indicator of selected category
 	n = $("#header"+position).attr("data-id");
-	loadBalls(n);
+	$("#container").animate({"margin-left":"-="+width+"px"}, "slow", function(){		// category movement by animating margin change
+		loadBalls(n);
+		if(position>catCount-1){															// checks if categories are going too far
+			position--;																		// update position indicator
+			n = $("#header"+position).attr("data-id");
+			$("#container").animate({"margin-left":"+="+width+"px"}, "slow", function(){	// if categories are going too far move them back
+				loadBalls(n);
+			});
+		}
+	});
+	$("#instruction"+position).show();
 }
 
-function transitionright(){													// swipe right
+function transitionright(){																// swipe right
 	$("#instruction"+position).hide();
 	width = $("#header5").innerWidth();
-	$("#container").animate({"margin-left":"+="+width+"px"}, "slow");
 	position--;
-	if(position<0){
-		$("#container").animate({"margin-left":"-="+width+"px"}, "slow");
-		position++;
-	}
-	$("#instruction"+position).show();
 	n = $("#header"+position).attr("data-id");
-	loadBalls(n);
+	$("#container").animate({"margin-left":"+="+width+"px"}, "slow", function(){
+		loadBalls(n);
+		if(position<0){
+			position++;
+			n = $("#header"+position).attr("data-id");
+			$("#container").animate({"margin-left":"-="+width+"px"}, "slow", function(){
+				loadBalls(n);
+			});
+		}
+	});
+	
+	$("#instruction"+position).show();	
 }
 
 
@@ -87,7 +96,7 @@ $(document).ready(function(){
 					catCount++;
 				});
 				$("#instruction0").show();
-				changewidth();
+					//changewidth();
 			}
 		}
 	});

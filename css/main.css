@@ -18,6 +18,10 @@ textarea {
     color: #222;
 }
 
+html{
+	overflow: hidden;
+}
+
 body {
     font-size: 1em;
     line-height: 1.4;
@@ -180,6 +184,9 @@ textarea {
 	text-align: center;
 	display: inline-block;
 	position: fixed;
+}
+.textcontainer{
+	display: inline-block;
 }
 #container2{
 	width: 100%;
