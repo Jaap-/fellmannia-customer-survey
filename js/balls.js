@@ -4,13 +4,13 @@
 		// Pallojen minikoko pikselein?
 		minsize: 100,
 		// Pallojen maksimikoko pikselein?
-		maxsize: 350,
+		maxsize: 200,
 		// Fonttien skaalautumisen kerroin
 		fontscale: 12
 	}
 
 $(document).ready(function(d) {
-	loadBalls(5);
+	loadBalls(1);
 	
 	// Liikkumis-funktion suoritus
 	shuffle();
@@ -71,48 +71,81 @@ $(document).ready(function(d) {
 	  
 	// Pallon valinta ja siirto keskelle
 	$('#pallot').on('click', '.sphere', function() {
-		var size = settings['maxsize'] + 'px', top = ($(window).height() / 2) - (settings['maxsize'] / 2) + 'px', left = ($(window).width() / 2) - (settings['maxsize'] / 2) + 'px';
-	  
-		// Pallojen syvyyskorjaus
-		$(this).each(function() {
-			$(this).css('z-index', '1')
-		})
-	  
-		// Pallon eteensiirtymisen animaatio
-		$(this).animate({
-			'position':'absolute', 
-			'top':top, 
-			'left':left, 
-			'width':size, 
-			'height':size, 
-			'font-size': Math.floor(settings['maxsize'] / 10) + 'px', 
-			'z-index':'100'
-		}, 1000, function() {
-			// Eteensiirretyn pallon tekstien keskitt?minen pystysuunnassa
-			$('p', this).css({'position':'relative', 'top':'50%', 'margin-top':-(parseInt($('p', this).height() + 20) / 2) + 'px'});
-		
-			// Kuvakkeet skaalaaminen
-			var scale = Math.round(((size - settings["minsize"]) / (settings["maxsize"] - settings["minsize"])) * 100);
-		
-			// Liian pieneksi skaalautumisen rajoitus
-			scale = (scale < 10) ? '10%' : scale + '%';
-		
-			// Kuvan n?ytt?minen skaalautumisen j?lkeen
-			$('.like-icon', this).css('background-size', scale).fadeIn(function() {
-				$(this).css("cursor", "pointer");
+		if($(this).attr('data-status') != 3){
+			var size = settings['maxsize'] + 'px', top = ($(window).height() / 2) - (settings['maxsize'] / 2) + 'px', left = ($(window).width() / 2) - (settings['maxsize'] / 2) + 'px';
+		  
+			// Pallojen syvyyskorjaus
+			$(this).each(function() {
+				$(this).css('z-index', '1')
+			})
+		  
+			// Pallon eteensiirtymisen animaatio
+			$(this).animate({
+				'position':'absolute', 
+				'top':top, 
+				'left':left, 
+				'width':size, 
+				'height':size, 
+				'font-size': Math.floor(settings['maxsize'] / 10) + 'px', 
+				'z-index':'100'
+			}, 1000, function() {
+				// Eteensiirretyn pallon tekstien keskitt?minen pystysuunnassa
+				$('p', this).css({'position':'relative', 'top':'50%', 'margin-top':-(parseInt($('p', this).height() + 20) / 2) + 'px'});
+			
+				// Kuvakkeet skaalaaminen
+				var scale = Math.round(((size - settings["minsize"]) / (settings["maxsize"] - settings["minsize"])) * 100);
+			
+				// Liian pieneksi skaalautumisen rajoitus
+				scale = (scale < 10) ? '10%' : scale + '%';
+			
+				// Kuvan n?ytt?minen skaalautumisen j?lkeen
+				$('.like-icon', this).css('background-size', scale).fadeIn(function() {
+					$(this).css("cursor", "pointer");
+				});
+			
+				// Kuvan n?ytt?minen skaalautumisen j?lkeen
+				$('.dislike-icon', this).css('background-size', scale).fadeIn(function() {
+					$(this).css("cursor", "pointer");
+				});
+		 
 			});
-		
-			// Kuvan n?ytt?minen skaalautumisen j?lkeen
-			$('.dislike-icon', this).css('background-size', scale).fadeIn(function() {
-				$(this).css("cursor", "pointer");
-			});
-	 
-		});
+		}else{
+			loadMonthlyQuestions($(this).attr('data-id'));
+		}
+		return false;
+	});
+	
+	$('#boxMonthlyQuestions .boxClose').click(function(){
+		$(this).parent().fadeOut('fast');
 		return false;
 	});
 	
 });
 
+
+function loadMonthlyQuestions(commentID){
+	$.ajax({
+		url: window.serverUrl,
+		data: {
+			act:'getquestioncomments',
+			id: commentID
+		},
+		type: "GET",
+		dataType: 'jsonp',
+		crossDomain: true,
+		cache : "false",
+		success: function(data){
+			if(data.status != 0){
+				$.each(data.comments, function(i, item){
+					
+				});
+				$('#boxMonthlyQuestions').fadeIn('fast');
+			}else{
+			
+			}
+		}
+	});
+}
 
 // Pallojen liikkumisen funktio
 var shuffle = function(s) {
@@ -152,19 +185,25 @@ function loadBalls(wantedCategory){
 			success: function(data){
 				if(data.status != 0){
 					
-					$(data.comments).each(function(i,item){
+					$.each(data.comments, function(i,item){
 						var color = '';
-						if (item.type == 0){
-							color = 'green';
-						}
-						else if(item.type == 2){
-							color = 'yellow';
-						}else{
+						if (item.status == 0){
 							color = 'grey';
 						}
+						else if(item.status == 1){
+							color = 'yellow';
+						}
+						else if(item.status == 2){
+							color = 'green';
+						}
+						else if(item.status == 3){
+							color = 'blue';
+						}/*else{
+							color = 'grey';
+						}*/
 						
 						$('div.clones').append('\
-						<div class="clearfix sphere '+color+' float-left" data-id="'+item.id+'">\
+						<div class="clearfix sphere '+color+' float-left" data-id="'+item.id+'" data-status="'+item.status+'">\
 							<!--<div class="absolute sphere-top full">\
 								<div class="margin-a like-icon hide"></div>\
 							</div>-->\

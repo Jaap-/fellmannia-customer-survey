@@ -11,12 +11,12 @@
 .dislike-icon {width:80px; height:88px; background:url(../img/icon_like_negative.png) no-repeat 50% 0;}
 
 .grey {
-  background: #ccc;
-  background: -webkit-radial-gradient(50% 50%, #fff, #ccc);
-  background: -moz-radial-gradient(50% 50%, #fff, #ccc);
-  background: -ms-radial-gradient(80% 80% #fff, #ccc);
-  background: -o-radial-gradient(80% 80% #fff, #ccc);
-  background: radial-gradient(50% 50%, #fff, #ccc);
+  background: #c5c5c5;
+  background: -webkit-radial-gradient(50% 50%, #fff, #c5c5c5);
+  background: -moz-radial-gradient(50% 50%, #fff, #c5c5c5);
+  background: -ms-radial-gradient(80% 80% #fff, #c5c5c5);
+  background: -o-radial-gradient(80% 80% #fff, #c5c5c5);
+  background: radial-gradient(50% 50%, #fff, #c5c5c5);
 }
 .yellow {
   background: #ffa;
@@ -33,6 +33,14 @@
   background: -ms-radial-gradient(100% 100%, #fff, #cfc);
   background: -o-radial-gradient(100% 100%, #fff, #cfc);
   background: radial-gradient(50% 50%, #fff, #cfc);
+}
+.blue {
+  background: #738ed6;
+  background: -webkit-radial-gradient(50% 50%, #fff, #738ed6);
+  background: -moz-radial-gradient(50% 50%, #fff, #738ed6);
+  background: -ms-radial-gradient(100% 100%, #fff, #738ed6);
+  background: -o-radial-gradient(100% 100%, #fff, #738ed6);
+  background: radial-gradient(50% 50%, #fff, #738ed6);
 }
 
 .dimensions {position:absolute; left:10px; bottom:10px; font-size:12px;}

@@ -18,6 +18,10 @@ textarea {
     color: #222;
 }
 
+html{
+	overflow: hidden;
+}
+
 body {
     font-size: 1em;
     line-height: 1.4;
@@ -124,6 +128,32 @@ textarea {
 #pallomeri {
 	display: none;
 }
+#boxMonthlyQuestions {
+	display: none;
+	background:url(../img/bg_darktransparent.png);
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:100;
+	overflow:auto;
+	color:#fff;
+}
+#boxMonthlyQuestions .boxTitle{
+	width:70%;
+	float:left;
+	padding:5px;
+	font-size:15px;
+}
+#boxMonthlyQuestions .boxClose{
+	width:20%;
+	float:right;
+	padding:5px;
+	font-size:15px;
+	background:#000;
+	text-align:right;
+}
 
 /*
  * Pallomeren ohjeistus
@@ -149,6 +179,10 @@ textarea {
 	width:100%;
 	background-position:top center;
 	margin:0 auto;
+}
+
+.textcontainer{
+	display: inline-block;
 }
 
 /*
@@ -327,6 +361,34 @@ textarea {
 	height: 40px;
 	width: 40px;
 }
+
+/*
+ * Kiitokset palautteesta
+ */
+#kiitos {
+	background:url(../img/bg_darktransparent.png);
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:100;
+	display: none;
+}
+#kiitos > div {
+	width:500px;
+	margin:0 auto;
+	margin-top:5%;
+	color:#fff;
+	text-align:center;
+}
+#kiitos > div > div {
+	width:100%;
+	background-position:top center;
+	margin:0 auto;
+}
+
+
 
 /*
  * Palautteen laadun valinta

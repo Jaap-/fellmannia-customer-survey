@@ -1,4 +1,7 @@
 ﻿
+
+
+
 $(document).ready(function() {
 	$.ajax({
 		url: window.serverUrl,
@@ -8,13 +11,16 @@ $(document).ready(function() {
 		crossDomain: true,
 		cache : "false",
 		success: function(data){
-		if(data.status != 0){
-			$(data.categories).each(function(i,item){
-			$('#kategoria_valinta').append('<option value="'+item.id+'">'+item.name+'</option>');
-			});
-		}
+			if(data.status != 0){
+				$(data.categories).each(function(i,item){
+				$('#kategoria_valinta').append('<option value="'+item.id+'">'+item.name+'</option>');
+				});
+			}
 		}
 	});
+
+
+
 	
 	$('#palautelaatikko').keydown(function() {
 		var len = this.value.length;
@@ -23,6 +29,9 @@ $(document).ready(function() {
 		}
 		$('#charLeft').text(140 - len);
 	});
+
+
+
 		
 	/*
 	 * fadeIn lähettäjän tiedoille, mikäli haluaa vastauksen...
@@ -34,6 +43,9 @@ $(document).ready(function() {
 			$("div#tiedot").fadeIn("fast");
 		}
 	});
+
+
+
 	
 	/*
 	* Palautteen peruuttaminen ja kenttien tyhjennyt
@@ -48,6 +60,9 @@ $(document).ready(function() {
 				.removeAttr('selected');
 		});
 	});
+
+
+
 		
 	$('#save').click(function(){
 	
@@ -55,7 +70,7 @@ $(document).ready(function() {
 		 * Haetaan kategoria, jolle palaute osoitetaan
 		 */
 		var category = $('#kategoria_valinta').val();
-			
+					
 		/*
 		 * Kategoriavalinnan tarkistus
 		 */
@@ -66,75 +81,65 @@ $(document).ready(function() {
 			$("#error_msg_cat").html('<span class="error">Valitse kategoria.</span>');
 			hasErrorCat = true;
 		}else{
-		
-			/*
-			 * Haetaan palautteen laatu
-			 */
-			var tone = $('#palaute input[name=tone]:checked').val();
-			
-			/*
-			 * Palautteen laadun valinnan tarkistus
-			 */
-			$(".error").hide();
-			var hasErrorTone = false;
-			if(tone != 0 != 1 != 2)
+
+
+
+			if($('input[type="checkbox"]#halu_palaute').is(':checked'))
 			{
-				$("#error_msg_tone").html('<span class="error">Valitse palautteen laatu.</span>');
-				hasErrorTone = true;
-			}else{
-			
+				/*
+				 * Tämä toteutetaan, mikäli halu_palaute on valittu
+				 */
+
+				var lahettaja = '';
+				var sposti = '';
+		
+				/*
+				 * Haetaan lähettäjän nimi, sähköposti, mikäli halu_palaute valittu
+				 */
+				lahettaja = $('#lahettaja').val();
+				sposti = $('#sposti').val();			
+						
+				var type=2;
+				var halu_palaute = 1;
+								
+				/*
+				 * Haetaan palaute
+				 */
+				var palautelaatikko = $('#palautelaatikko').val();
+				
+				/*
+				 * Haetaan palautteen laatu
+				 */
+				var tone = $('#palaute input[name=tone]').val();
+						
+				/*
+				 * Sähköpostin tarkistus
+				 */
 				if($('input[type="checkbox"]#halu_palaute').is(':checked'))
 				{
-					/*
-					 * Tämä toteutetaan, mikäli halu_palaute on valittu
-					 */
-
-					var lahettaja = '';
-					var sposti = '';
-							
-					/*
-					 * Haetaan lähettäjän nimi, sähköposti, mikäli halu_palaute valittu
-					 */
-					lahettaja = $('#lahettaja').val();
-					sposti = $('#sposti').val();			
-							
-					var type=2;
-					var halu_palaute = 1;
-							
-					/*
-					 * Haetaan palaute
-					 */
-					var palautelaatikko = $('#palautelaatikko').val();
-							
-					/*
-					 * Haetaan palautteen laatu
-					 */
-					var tone = $('#palaute input[name=tone]:checked').val();
-							
-					/*
-					 * Sähköpostin tarkistus
-					 */
-					if($('input[type="checkbox"]#halu_palaute').is(':checked'))
+					$(".error").hide();
+					var hasError = false;
+					var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+					var emailaddressVal = $("#sposti").val();
+					if(emailaddressVal == '') // Mikäli sposti on tyhjä
 					{
-						$(".error").hide();
-						var hasError = false;
-						var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-						var emailaddressVal = $("#sposti").val();
-						if(emailaddressVal == '') // Mikäli sposti on tyhjä
-						{
-							$("#sposti").after('<span class="error">Tarkasta sähköpostiosoite.</span>');
-							hasError = true;
-						}
-						else if(!emailReg.test(emailaddressVal)) // Mikäli sposti ei vastaa oletuksia
-						{
-							$("#sposti").after('<span class="error">Tarkasta sähköpostiosoite.</span>');
-							hasError = true;
-						}
-						if(hasError == true)
-						{
-							return false;
-						}else{ // Mikäli sähköposti on ok, lähetetään tiedot
-							$.ajax({
+						$("#sposti").after('<span class="error">Tarkasta sähköpostiosoite.</span>');
+						hasError = true;
+					}
+					else if(!emailReg.test(emailaddressVal)) // Mikäli sposti ei vastaa oletuksia
+					{
+						$("#sposti").after('<span class="error">Tarkasta sähköpostiosoite.</span>');
+						hasError = true;
+					}
+					if(hasError == true)
+					{
+						return false;
+					}else{ // Mikäli sähköposti on ok
+
+						/*
+						 * Lähetetään tiedot palvelimelle
+						 */
+						$.ajax({
 							url: window.serverUrl,
 							data: {act:'addcomment', catid:category, type:type, text:palautelaatikko, contactinfo:lahettaja+':'+sposti, contact:halu_palaute, status:tone},
 							type: "GET",
@@ -142,79 +147,113 @@ $(document).ready(function() {
 							crossDomain: true,
 							cache : "false",
 							success: function(data){
-								if(data.status != 0){
+								if(data.status == 0){
 									$.each(data.errors, function(i,item){
-										alert(item[i]);
+										alert(item);
 									});
 								}
 							}
 						});
+						
+						/*
+						* Suljetaan palauteikkuna postauksen yhteydessä
+						*/
+						$("#palaute_ikkuna").fadeOut("fast");
+
+						/*
+						* Tyhjennetään kaikki kentät ja valinnat tallennettaessa.
+						*/
+						$(':input,#palaute')
+							.not(':button, :submit, :reset, :hidden')
+							.val('')
+							.removeAttr('checked')
+							.removeAttr('selected');
+							
+						/*
+						* Avataan kiitosteksti
+						*/
+						$("#kiitos").fadeIn("fast");
+					}
+				}
+
+
+
+			} else {
+				/*
+				 * Tämä toteutetaan, mikäli halu_palautetta ei ole valittu
+				 */
+
+				 /*
+				 * Määritetään, ettei haluta palautetta
+				 */
+				var lahettaja = '';
+				var sposti = '';
+				var type=0;	
+				var halu_palaute = 0;
+
+				/*
+				 * Haetaan palaute
+				 */
+				var palautelaatikko = $('#palautelaatikko').val();
+
+
+
+				/*
+				 * Suljetaan palauteikkuna postauksen yhteydessä
+				 */
+				$("#palaute_ikkuna").fadeOut("fast");
+
+				/*
+				 * Tyhjennetään kaikki kentät ja valinnat tallennettaessa.
+				 */
+				$(':input,#palaute')
+					.not(':button, :submit, :reset, :hidden')
+					.val('')
+					.removeAttr('checked')
+					.removeAttr('selected');
+				
+				/*
+				 * Haetaan palautteen laatu
+				 */
+				var tone = $('#palaute input[name=tone]').val();							
+
+
+				/*
+				 * Lähetetään tiedot palvelimelle
+				 */
+				$.ajax({
+					url: window.serverUrl,
+					data: {act:'addcomment', catid:category, type:type, text:palautelaatikko, contactinfo:lahettaja+':'+sposti, contact:halu_palaute, status:tone},
+					type: "GET",
+					dataType: 'jsonp',
+					crossDomain: true,
+					cache : "false",
+					success: function(data){
+						if(data.status == 0){
+							$.each(data.errors, function(i,item){
+								alert(item);
+							});
 						}
 					}
-						
-				} else {
-					/*
-					 * Tämä toteutetaan, mikäli halu_palautetta ei ole valittu
-					 */
-						
-					/*
-					 * Määritetään, ettei haluta palautetta
-					 */
-					var lahettaja = '';
-					var sposti = '';
-					var type=0;	
-					var halu_palaute = 0;
+				});
 
-					/*
-					 * Haetaan palaute
-					 */
-					var palautelaatikko = $('#palautelaatikko').val();
-						
-					/*
-					 * Suljetaan palauteikkuna postauksen yhteydessä
-					 */
-					$("#palaute_ikkuna").fadeOut("fast");
-
-					/*
-					 * Tyhjennetään kaikki kentät ja valinnat tallennettaessa.
-					 */
-					$(':input,#palaute')
-						.not(':button, :submit, :reset, :hidden')
-						.val('')
-						.removeAttr('checked')
-						.removeAttr('selected');
-					
-					/*
-					 * Lähetetään palaute
-					 */
-					$.ajax({
-						url: window.serverUrl,
-						data: {act:'addcomment', catid:category, type:type, text:palautelaatikko, contactinfo:lahettaja+':'+sposti, contact:halu_palaute, status:tone},
-						type: "GET",
-						dataType: 'jsonp',
-						crossDomain: true,
-						cache : "false",
-						success: function(data){
-							/*if(data.status = 1)
-							{
-								$.each(data.errors, function(i,item)
-								{
-									alert(item);
-								});
-							}*/
-							/*if(data.status != 0){
-								$.each(data.errors, function(i,item){
-									alert(item);
-								});
-							}*/
-						}
-					});
-				}
+				/*
+				 * Avataan kiitosteksti
+				 */
+				$("#kiitos").fadeIn("fast");
 			}
-			if(hasErrorTone == true) { return false; }
+			if(hasErrorCat == true) { return false; }
 		}
-		if(hasErrorCat == true) { return false; }
-		return false;
+	return false;
+	});
+	
+	
+	$('#kiitos').click(function(){
+		/*
+		 * Suljetaan kiitosteksti
+		 */
+		$("#kiitos").fadeOut("fast");
 	});
 });
+
 
