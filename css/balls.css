@@ -2,37 +2,106 @@
  * Pallot
  */
 
-.sphere {text-align:center; border:1px solid rgba(0,0,0,0.2); _box-shadow:inset 0 0 10px #fff; border-radius:9999px; _outline:1px solid #f00;}
-.sphere p {padding:10px; width:90%; color:#777; _outline:1px solid #000; }
+.sphere {
+	text-align:center; 
+	border:1px solid rgba(0,0,0,0.2); 
+	_box-shadow:inset 0 0 10px #fff; 
+	border-radius:9999px; 
+	_outline:1px solid #f00;
+}
+.sphere p {
+	padding:10px; 
+	color:#777; 
+	_outline:1px solid #000; 
+	font-family: 'Antic Slab', serif; 
+}
 
-.sphere-top {top:10px;}
-.sphere-bottom {bottom:10px;}
-.like-icon {width:80px; height:88px; background:url(../img/icon_like_positive.png) no-repeat 50% 100%;}
-.dislike-icon {width:80px; height:88px; background:url(../img/icon_like_negative.png) no-repeat 50% 0;}
+.sphere-top {
+	top:10px;
+}
+.sphere-bottom {
+	bottom:10px;
+}
+.like-icon {
+	max-width:80px;
+	width:25%;
+	position:absolute;
+	top:10px;
+	left:50%;
+	z-index:1000;
+	display:none;
+}
+.dislike-icon {
+	max-width:80px;
+	width:25%;
+	position:absolute;
+	bottom:10px;
+	left:50%;
+	z-index:1000;
+	display:none;
+}
+#likeCount {
+	position:absolute;
+	top:10px;
+	left:50%;
+	z-index:1000;
+	display:none;
+	color:#555;
+}
+#dislikeCount {
+	position:absolute;
+	bottom:10px;
+	left:50%;
+	z-index:1000;
+	display:none;
+	color:#555;
+}
 
 .grey {
-  background: #c5c5c5;
+  /*background: #c5c5c5;
   background: -webkit-radial-gradient(50% 50%, #fff, #c5c5c5);
   background: -moz-radial-gradient(50% 50%, #fff, #c5c5c5);
   background: -ms-radial-gradient(80% 80% #fff, #c5c5c5);
   background: -o-radial-gradient(80% 80% #fff, #c5c5c5);
   background: radial-gradient(50% 50%, #fff, #c5c5c5);
+  */
+  background: #cfcfcf;
+  background: -webkit-radial-gradient(50% 50%, #fff, #cfcfcf);
+  background: -moz-radial-gradient(50% 50%, #fff, #cfcfcf);
+  background: -ms-radial-gradient(80% 80% #fff, #cfcfcf);
+  background: -o-radial-gradient(80% 80% #fff, #cfcfcf);
+  background: radial-gradient(50% 50%, #fff, #cfcfcf);
 }
 .yellow {
-  background: #ffa;
+  /*background: #ffa;
   background: -webkit-radial-gradient(50% 50%, #fff, #ffa);
   background: -moz-radial-gradient(50% 50%, #fff, #ffa);
   background: -ms-radial-gradient(100% 100%, #fff, #ffa);
   background: -o-radial-gradient(100% 100%, #fff, #ffa);
   background: radial-gradient(50% 50%, #fff, #ffa);
+  */
+  background: #ffed00;
+  background: -webkit-radial-gradient(50% 50%, #fff, #ffed00);
+  background: -moz-radial-gradient(50% 50%, #fff, #ffed00);
+  background: -ms-radial-gradient(100% 100%, #fff, #ffed00);
+  background: -o-radial-gradient(100% 100%, #fff, #ffed00);
+  background: radial-gradient(50% 50%, #fff, #ffed00);
+  
 }
 .green {
-  background: #cfc;
+  /*background: #cfc;
   background: -webkit-radial-gradient(50% 50%, #fff, #cfc);
   background: -moz-radial-gradient(50% 50%, #fff, #cfc);
   background: -ms-radial-gradient(100% 100%, #fff, #cfc);
   background: -o-radial-gradient(100% 100%, #fff, #cfc);
   background: radial-gradient(50% 50%, #fff, #cfc);
+  */
+  background: #b6c932;
+  background: -webkit-radial-gradient(50% 50%, #fff, #b6c932);
+  background: -moz-radial-gradient(50% 50%, #fff, #b6c932);
+  background: -ms-radial-gradient(100% 100%, #fff, #b6c932);
+  background: -o-radial-gradient(100% 100%, #fff, #b6c932);
+  background: radial-gradient(50% 50%, #fff, #b6c932);
 }
 .blue {
   background: #738ed6;
@@ -43,4 +112,9 @@
   background: radial-gradient(50% 50%, #fff, #738ed6);
 }
 
-.dimensions {position:absolute; left:10px; bottom:10px; font-size:12px;}
+.dimensions {
+	position:absolute; 
+	left:10px; 
+	bottom:10px; 
+	font-size:12px;
+}

@@ -16,6 +16,10 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c8d8f', endColorstr='#d7e6ae',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
+#frontpage * {
+	font-family: 'Antic Slab', serif;
+}
+
 #frontpage-info{
 	position:absolute;
 	top:10px;
@@ -32,18 +36,23 @@
 	top:0;
 	left:0;
 	z-index:100;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 #frontpage-info-box > div {
-	width:500px;
+	width:90%;
 	color:#fff;
 	text-align:center;
 	margin:0 auto;
 	margin-top:5%;
 }
-#frontpage-info-box > div > div {
+#frontpage-info-box span{
+	font-family: 'Antic Slab', serif;
+}
+/*#frontpage-info-box > div > div {
 	width:100%;
 	background-position: top center;
-}
+}*/
 
 #frontpage-icon-container {
 	width:500px;

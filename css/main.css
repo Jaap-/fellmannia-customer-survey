@@ -27,6 +27,7 @@ body {
     line-height: 1.4;
 	padding: 0;
 	margin: 0;
+	overflow:hidden;
 //	background: #606060 !important; /* Old browsers */
 //	background: -moz-linear-gradient(left, #606060 0%, #c6c6c6 100%) !important; /* FF3.6+ */
 //	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#606060), color-stop(100%,#c6c6c6)) !important; /* Chrome,Safari4+ */
@@ -45,14 +46,22 @@ body {
 	width:100%;
 	min-height: 100%;
 	margin: auto;
-	background: #8c8d8f; /* Old browsers */
-	background: -moz-linear-gradient(-45deg, #8c8d8f 0%, #d7e6ae 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#8c8d8f), color-stop(100%,#d7e6ae)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* IE10+ */
-	background: linear-gradient(135deg, #8c8d8f 0%,#d7e6ae 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c8d8f', endColorstr='#d7e6ae',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	_background: #8c8d8f; /* Old browsers */
+	_background: -moz-linear-gradient(-45deg, #8c8d8f 0%, #d7e6ae 100%); /* FF3.6+ */
+	_background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#8c8d8f), color-stop(100%,#d7e6ae)); /* Chrome,Safari4+ */
+	_background: -webkit-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* Chrome10+,Safari5.1+ */
+	_background: -o-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* Opera 11.10+ */
+	_background: -ms-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* IE10+ */
+	_background: linear-gradient(135deg, #8c8d8f 0%,#d7e6ae 100%); /* W3C */
+	_filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c8d8f', endColorstr='#d7e6ae',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	background: #a5a5a5; /* Old browsers */
+	background: -moz-linear-gradient(top, #a5a5a5 0%, #e8e8e8 25%, #e8e8e8 50%, #e8e8e8 75%, #a5a5a5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a5a5a5), color-stop(25%,#e8e8e8), color-stop(50%,#e8e8e8), color-stop(75%,#e8e8e8), color-stop(100%,#a5a5a5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5a5a5', endColorstr='#a5a5a5',GradientType=0 ); /* IE6-9 */
 }
 
 /*
@@ -158,7 +167,7 @@ textarea {
 /*
  * Pallomeren ohjeistus
  */
-#pallomeri-instructions-box {
+#pallomeri-instructions-box, .touchContainer {
 	background:url(../img/bg_darktransparent.png);
 	position:absolute;
 	width:100%;
@@ -166,23 +175,41 @@ textarea {
 	top:0;
 	left:0;
 	z-index:100;
-	overflow:auto;
+	_overflow:auto;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
-#pallomeri-instructions-box > div {
-	width:500px;
+#pallomeri-instructions-box > div, .touchContainerInner {
+	_width:500px;
 	margin:0 auto;
 	margin-top:5%;
 	color:#fff;
 	text-align:center;
 }
-#pallomeri-instructions-box > div > div {
+/*#pallomeri-instructions-box > div > div {
 	width:100%;
 	background-position:top center;
 	margin:0 auto;
-}
+}*/
 
+#pallomeri-instructions-box span {
+	font-family: 'Antic Slab', serif;
+}
 .textcontainer{
 	display: inline-block;
+}
+
+.img-wrap{
+	display: inline-block;       
+    position:relative;  
+}
+.rescaled-img-wrap{
+	margin:0 auto;
+	width: 90%;
+}
+.rescaled-img{
+	width: 100%;
+    //height: 100%;
 }
 
 /*
@@ -199,6 +226,8 @@ textarea {
 	overflow: hidden;
 	color: #ffffff;
 	font-family: 'Antic Slab', serif;
+	position:absolute;
+	z-index:2;
 }
 #container{
 	width: 100%;
@@ -216,23 +245,25 @@ textarea {
 	position: fixed;
 }
 #container2{
+	position:absolute;
 	width: 100%;
 	height: 40px;
 	overflow-x: auto;
 	overflow-y: hidden;
 	float: left;
 	display: block;
-	white-space: nowrap;
-	overflow: hidden;
+	_white-space: nowrap;
+	_overflow: hidden;
 	color: #ffffff;
 	font-family: 'Antic Slab', serif;
+	z-index:1;
 }
 #instructions{
 	width: 100%;
 	height: 40px;
 	display: inline;
-	overflow: hidden;
-	white-space: nowrap;
+	_overflow: hidden;
+	_white-space: nowrap;
 	position: absolute;	
 }
 .instructiontext{
@@ -240,12 +271,12 @@ textarea {
 	height: 40px;
 	width: 100%;
 	text-align: center;
-	display: inline-block;
+	_display: inline-block;
 	position: fixed;
 }
 
 /*
- * Pallomeri tulee tähän
+ * Pallomeri
  */
 #pallot {
 	position: fixed;
@@ -254,7 +285,7 @@ textarea {
 	/*background: #916;*/
 	overflow: hidden;
 }
-#lisaa_pallo {
+#addFeedback {
 	position: fixed;
 	right: 10px;
 	bottom: 10px;
@@ -283,10 +314,11 @@ textarea {
 	cursor: pointer;
 }
 
+
 /*
- * Palauteen luonti
+ * FEEDBACK CONTAINER
  */
-#palaute_ikkuna {
+#boxFeedback {
 	background:url(../img/bg_darktransparent.png);
 	position:absolute;
 	width:100%;
@@ -296,57 +328,98 @@ textarea {
 	z-index:100;
 	display: none;
 }
-#palaute_ikkuna > div{
+#boxFeedback * {
+	font-family: 'Antic Slab', serif;
+}
+#boxFeedbackContainer{
 	color:#fff;
-	height: 450px;
-	width: 330px;
-	padding: 5px;
-	margin:10% auto;
+	_height: 450px;
+	max-width: 400px;
+	padding: 0 10px 0 10px;
+	_margin:10% auto;
 }
-#tiedot {
-	display: none;
+
+/* FORM */
+#formFeedback select, #formFeedback textarea {
+	width:100%;
+	margin-top:10px;
 }
-#save {
-	background-color: #666666;
-	border-color: #666666;
-	color:#fff;
+#formFeedback label {
+    display: inline-block;
+    cursor: pointer;
 }
-#cancel {
-	background-color: #666666;
-	border-color: #666666;
-	color:#fff;
+#formFeedback label:hover {
+    background-color: #757575;
 }
-#kategoria_valinta {
+#formFeedback label img {
+    padding: 3px;  
+}
+
+#formFeedback span {
+	font-size:20px;
+}
+
+#formFeedback .btnSave, #formFeedback .btnCancel {
+	font-family: 'Antic Slab', serif;
+	font-size: 30px;
+	color: #ffffff;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#ededed 0%,
+		#878787);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#ededed),
+		to(#878787));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #949494;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.2),
+		0px 1px 0px rgba(255,255,255,1);
+
+}
+#feedbackCategory {
 	position: relative;
 	background:url(../img/bg_darktransparent.png);
 	color: #fff;
-	left: 50px;
+	_left: 50px;
 	border: 0 none;
     border-radius: 10px 10px 10px 10px;
 	padding:5px;
 }
-#kategoria_valinta option {
+#feedbackCategory option {
 	background: #222222;
 	color: #fff;
 }
-#lahettaja {
-	background: none repeat scroll 0 0 #000000;
-    border: 1px solid #000000;
-    border-radius: 5px 5px 5px 5px;
-    color: #FFFFFF;
-    padding: 5px;
+#boxContactInformation{
+
 }
-#sposti{
-	background: none repeat scroll 0 0 #000000;
-    border: 1px solid #000000;
-    border-radius: 5px 5px 5px 5px;
+#boxContactInformation input {
+	background:transparent;
+	border: 0 none;
+    border-bottom: 1px solid #fff;
     color: #FFFFFF;
-    padding: 5px;
+    padding: 2px;
+	width:100%;
+	margin-top:10px;
 }
-#palautelaatikko {
+#feedbackMsg {
 	background: url(../img/bg_textarea.png) repeat-x scroll 0 0 transparent;
     border: 0 none;
     color: #FFFFFF;
+	height:75px;
 }
 
 #posit_like {
@@ -361,11 +434,15 @@ textarea {
 	height: 40px;
 	width: 40px;
 }
+span.error {
+	color:#ff0000;
+	display:none;
+}
 
 /*
  * Kiitokset palautteesta
  */
-#kiitos {
+#boxThanks {
 	background:url(../img/bg_darktransparent.png);
 	position:absolute;
 	width:100%;
@@ -375,35 +452,21 @@ textarea {
 	z-index:100;
 	display: none;
 }
-#kiitos > div {
+#boxThanks > div {
 	width:500px;
 	margin:0 auto;
 	margin-top:5%;
 	color:#fff;
 	text-align:center;
 }
-#kiitos > div > div {
-	width:100%;
-	background-position:top center;
-	margin:0 auto;
+#boxThanks > div > span {
+	font-family: 'Antic Slab', serif;
+	font-size:40px;
 }
-
-
 
 /*
  * Palautteen laadun valinta
  */
-#sisalto label {
-    display: inline-block;
-    cursor: pointer;
-}
-#sisalto label:hover {
-    background-color: #757575;
-}
-#sisalto label img {
-    padding: 3px;  
-}
-
 .input_hidden {
     position: absolute;
     left: -9999px;
@@ -423,7 +486,14 @@ textarea {
 }
 
 
-
+#boxMessage {
+	display:none;
+	z-index:2000;
+}
+#boxMessage span {
+	font-family: 'Antic Slab', serif;
+	font-size:40px;
+}
 
 
 
