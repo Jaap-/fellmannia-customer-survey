@@ -28,14 +28,6 @@ body {
 	padding: 0;
 	margin: 0;
 	overflow:hidden;
-//	background: #606060 !important; /* Old browsers */
-//	background: -moz-linear-gradient(left, #606060 0%, #c6c6c6 100%) !important; /* FF3.6+ */
-//	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#606060), color-stop(100%,#c6c6c6)) !important; /* Chrome,Safari4+ */
-//	background: -webkit-linear-gradient(left, #606060 0%,#c6c6c6 100%) !important; /* Chrome10+,Safari5.1+ */
-//	background: -o-linear-gradient(left, #606060 0%,#c6c6c6 100%) !important; /* Opera 11.10+ */
-//	background: -ms-linear-gradient(left, #606060 0%,#c6c6c6 100%) !important; /* IE10+ */
-//	background: linear-gradient(to right, #606060 0%,#c6c6c6 100%) !important; /* W3C */
-//	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#c6c6c6',GradientType=1 ) !important; /* IE6-9 */
 }
 
 #background {
@@ -186,11 +178,6 @@ textarea {
 	color:#fff;
 	text-align:center;
 }
-/*#pallomeri-instructions-box > div > div {
-	width:100%;
-	background-position:top center;
-	margin:0 auto;
-}*/
 
 #pallomeri-instructions-box span {
 	font-family: 'Antic Slab', serif;
@@ -492,7 +479,6 @@ span.error {
 }
 #boxMessage span {
 	font-family: 'Antic Slab', serif;
-	font-size:40px;
 }
 
 
