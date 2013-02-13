@@ -1,65 +1,98 @@
 
 /* Design for a width smaller than 767px */
 @media only screen and (max-width: 767px) {
-	#frontpage-info{
-		background:url(../img/icon_info.png) no-repeat;
-		width:35px !important;
-		height:35px !important;
-	}
-	
-	#frontpage-info-box > div{
-		width:80% !important;
-		font-size:10px;
-		color:#fff;
-		text-align:center;
-		margin:0 auto;
-		margin-top:5%;
-	}
+    #arrowLeft, #arrowRight{
+        display:none !important;
+    }
+    #arrowLeftMini, #arrowRightMini {
+        display:block !important;
+    }
+    
+    #frontpage-info{
+        background:url(../img/icon_info.png) no-repeat;
+        width:35px !important;
+        height:35px !important;
+    }
+    
+    #frontpage-admin{
+        background:url(../img/icon_admin.png) no-repeat;
+        width:35px !important;
+        height:35px !important;
+        top:60px !important;
+    }
+    
+    #boxMonthlyQuestion .boxClose{
+        background:url(../img/icon_close.png) no-repeat;
+        width:35px !important;
+        height:35px !important;
+    }
 
-	#frontpage-icon-container{
-		width:100% !important;
-	}
-	#frontpage-gotoapp{
-		background:url(../img/icon_fellmannia.png) no-repeat;
-		width:25%;
-		height:240px !important;
-	}
-	#frontpage-gotomap{
-		background:url(../img/icon_map.png) no-repeat;
-		width:25%;
-		height:240px !important;
-	}
-	#frontpage-icon-container > div > div{
-		width:100%;
-		position: absolute; 
-		bottom: 0; 
-		color:#fff;
-		font-size:15px;
-		text-align:center;
-	}
-	
-	#frontpage-links-container {
-		width:100% !important;
-		min-height:120px;
-		margin:0 auto;
-		margin-top:50px;
-		position:absolute;
-		bottom:0 !important;
-		left:0 !important;
-		margin-left:0 !important;
-	}
-	
-	#frontpage-links-container > div > div{
-		display:none !important;
-	}
-	
-	/* PALLOMERI INSTRUCTIONBOX */
-	#pallomeri-instructions-box > div {
-		width:80% !important;
-		margin:0 auto;
-		margin:3%;
-		color:#fff;
-		font-size:10px !important;
-		text-align:center;
-	}
+    #frontpage-info-box > div{
+        width:80% !important;
+        font-size:10px;
+        color:#fff;
+        text-align:center;
+        margin:0 auto;
+        margin-top:5%;
+    }
+
+    #frontpage-icon-container{
+        width:100% !important;
+    }
+    #frontpage-gotoapp{
+        background:url(../img/icon_fellmannia.png) no-repeat;
+        width:25%;
+        height:240px !important;
+    }
+    #frontpage-gotomap{
+        background:url(../img/icon_map.png) no-repeat;
+        width:25%;
+        height:240px !important;
+    }
+    #frontpage-icon-container > div > div{
+        width:100%;
+        position: absolute; 
+        bottom: 0; 
+        color:#fff;
+        font-size:15px;
+        text-align:center;
+    }
+
+    #frontpage-links-container {
+        width:100% !important;
+        min-height:120px;
+        margin:0 auto;
+        margin-top:50px;
+        position:absolute;
+        bottom:0 !important;
+        left:0 !important;
+        margin-left:0 !important;
+    }
+
+    #frontpage-links-container > div > div{
+        display:none !important;
+    }
+
+    /* PALLOMERI INSTRUCTIONBOX */
+    #pallomeri-instructions-box > div {
+        width:80% !important;
+        margin:0 auto;
+        margin:3%;
+        color:#fff;
+        font-size:10px !important;
+        text-align:center;
+    }
 }
+
+
+/*@media only screen and (max-height: 600px) {
+    #frontpage-links-container {
+        width:100% !important;
+        min-height:120px;
+        margin:0 auto;
+        margin-top:50px;
+        position:absolute;
+        top:0 !important;
+        right:0 !important;
+    }
+}*/

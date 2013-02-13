@@ -3,6 +3,8 @@ window.serverUrl = 'http://apps.homelinux.net/fellmannia/api/';
 window.fontScale = 20;
 window.fontSizeMax = 40;
 
+window.loginCheckInterval = 30;
+
 var world = {
     x1: 0,
     y1: 100,
@@ -91,11 +93,17 @@ $(document).ready(function(){
     $(document).on("click", "#addFeedback",function(){
         var $boxFeedback = $("div#boxFeedback");
         window.Feedback.clearFields();
+        window.Feedback.changeContent();
+        
         if($boxFeedback.is(":visible")){
             $boxFeedback.fadeOut("slow");
         }else{
             $boxFeedback.fadeIn("slow");
         }
+    });	
+    
+    $('#frontpage-admin, #backToAdmin').click(function(){
+        window.location = 'staff/';
     });	
 	
     $(window).blur(function(){
@@ -121,8 +129,13 @@ $(document).ready(function(){
 	
     $(window).keypress(function(event) {
         if(event.which == 167){
-            console.log('show settings box');
+            $('#boxDebug').slideToggle('fast');
         }
+    });
+    
+    $('#settingsSave').click(function(){
+       window.loginCheckInterval = parseInt($('#settingsLoginCheck').val()); 
+       var newCommentsInterval = $('#settingsNewComments').val(); 
     });
 	
     init();
@@ -138,7 +151,12 @@ function init(){
     $('#pallomeri-instructions-box span, #frontpage-info-box span, #boxMessage span').css({
         'font-size': fontSize+'px'
     });
-	
+    
+    loginCheck();
+    setInterval(function() {
+        loginCheck();
+    }, window.loginCheckInterval*1000);
+    
     window.Feedback = new Feedback();
     window.BallsCollection = new BallsCollection();
     window.CategoryMenu = new CategoryMenu();
@@ -163,7 +181,24 @@ function translate(a,x1,x2,y1,y2) {
 function showMessage(msg){
     $('#boxMessage span').html(msg);
     $('#boxMessage').fadeIn('fast', function(){
-        $(this).delay(3000).fadeOut('fast');
+        $(this).delay(2000).fadeOut('fast');
     });
 }
 
+function loginCheck(f){
+    $.ajax({
+        url: window.serverUrl+'logincheck',
+        type: "POST",
+        dataType: 'json',
+        cache : "false",
+        success: function(data){
+            if(data.status != 0){
+                $('#frontpage-admin, #backToAdmin').css('display', 'block');
+                window.loggedIn = true;
+            }else{
+                $('#frontpage-admin, #backToAdmin').css('display', 'none');
+                window.loggedIn = false;
+            }
+        }
+    });
+}

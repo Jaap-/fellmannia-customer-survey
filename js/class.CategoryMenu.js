@@ -15,6 +15,15 @@ CategoryMenu.prototype = {
     initialize: function(){
         this.changeWidth();
         this.loadCategories();
+        
+        $('#arrowLeft').click(function(){
+            window.CategoryMenu.transitionRight();
+            return false;
+        });
+        $('#arrowRight').click(function(){
+            window.CategoryMenu.transitionLeft();
+            return false;
+        });
     },
     layout: function(){	// adjusts the height of div "content"
         var height = $(window).height();
@@ -88,7 +97,6 @@ CategoryMenu.prototype = {
                 $("#container").animate({
                     "margin-left":"+="+CategoryMenu.width+"px"
                 }, "slow", function(){	// if categories are going too far move them back
-                    //window.BallsCollection.loadBalls(CategoryMenu.n);
                     $("#instruction"+CategoryMenu.position).show();
                     CategoryMenu.changeWidth();
                 });
@@ -97,70 +105,6 @@ CategoryMenu.prototype = {
             }
             $("#instruction"+CategoryMenu.position).show();
         });
-		
-		
-    /*if(CategoryMenu.position>CategoryMenu.catCount-1){
-			$("#container").animate({
-				"margin-left":"-="+CategoryMenu.width/4+"px"
-			}, "slow", function(){		// category movement by animating margin change
-				if(CategoryMenu.position>CategoryMenu.catCount-1){	// checks if categories are going too far
-					CategoryMenu.position--;	// update position indicator
-					CategoryMenu.n = $("#header"+CategoryMenu.position).attr("data-id");
-					$("#container").animate({
-						"margin-left":"+="+CategoryMenu.width/4+"px"
-					}, "slow", function(){	// if categories are going too far move them back
-						//window.BallsCollection.loadBalls(CategoryMenu.n);
-						$("#instruction"+CategoryMenu.position).show();
-						CategoryMenu.changeWidth();
-					});
-				}else{
-					window.BallsCollection.loadBalls(CategoryMenu.n);
-				}
-				$("#instruction"+CategoryMenu.position).show();
-			});
-		}else{
-			$("#container").animate({
-				"margin-left":"-="+CategoryMenu.width+"px"
-			}, "slow", function(){
-				window.BallsCollection.loadBalls(CategoryMenu.n);
-				$("#instruction"+CategoryMenu.position).show();
-				CategoryMenu.changeWidth();
-			});
-		}*/
-		
-    /*var containerPos = $("#container").css('margin-left');
-		$("#container").tween({
-			left:{
-				stop: containerPos-CategoryMenu.width,
-				time: 0,
-				duration: 1,
-				units: 'px',
-				onStop: function(){
-					window.BallsCollection.loadBalls(CategoryMenu.n);
-					if(CategoryMenu.position>CategoryMenu.catCount-1){// checks if categories are going too far
-						CategoryMenu.position--;// update position indicator
-						CategoryMenu.n = $("#header"+CategoryMenu.position).attr("data-id");
-						containerPos = $("#container").css('margin-left');
-						$("#container").tween({
-							'margin-left':{
-								stop: containerPos+CategoryMenu.width,
-								time: 0,
-								duration: 1,
-								units: 'px',
-								onStop: function(){
-									window.BallsCollection.loadBalls(CategoryMenu.n);
-									$("#instruction"+CategoryMenu.position).show();
-									CategoryMenu.changeWidth();
-									console.log('tween success');
-								}
-							}
-						}).play();
-					}
-					$("#instruction"+CategoryMenu.position).show();
-					console.log('tween success');
-				}
-			}
-		}).play();*/
     },
     transitionRight: function(){ // swipe right
         $("#instruction"+this.position).hide();
@@ -186,33 +130,6 @@ CategoryMenu.prototype = {
             }
             $("#instruction"+CategoryMenu.position).show();	
         });
-		
-    /*$("#instruction"+this.position).hide();
-		this.width = $("#header5").innerWidth();
-		this.position--;
-		this.n = $("#header"+this.position).attr("data-id");
-		var CategoryMenu = this;
-		
-		if(this.position<0){
-			// jos menee yli
-			$("#container").animate({"margin-left":"+="+CategoryMenu.width/4+"px"}, "slow", function(){
-				CategoryMenu.position++;
-				CategoryMenu.n = $("#header"+CategoryMenu.position).attr("data-id");
-				$("#container").animate({
-					"margin-left":"-="+CategoryMenu.width/4+"px"
-				}, "slow", function(){
-					//window.BallsCollection.loadBalls(CategoryMenu.n);
-					$("#instruction"+CategoryMenu.position).show();
-					CategoryMenu.changeWidth();
-				});
-			});
-		}else{
-			$("#container").animate({"margin-left":"+="+CategoryMenu.width+"px"}, "slow", function(){
-				window.BallsCollection.loadBalls(CategoryMenu.n);
-				$("#instruction"+CategoryMenu.position).show();	
-				CategoryMenu.changeWidth();
-			});
-		}*/
     },
     loadCategories: function(){
         this.layout();

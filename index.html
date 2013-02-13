@@ -12,236 +12,266 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-		<link href='http://fonts.googleapis.com/css?family=Antic+Slab' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/responsive.css">
-		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/icons.css">
-		<link rel="stylesheet" href="css/frontpage.css">
-		<link rel="stylesheet" href="css/balls.css">
-
+        <link href='http://fonts.googleapis.com/css?family=Antic+Slab' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/icons.css">
+        <link rel="stylesheet" href="css/frontpage.css">
+        <link rel="stylesheet" href="css/balls.css">
+        
     </head>
-	<body>
-		<!--[if lt IE 7]>
-			<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-		<![endif]-->
-		
-		<div id="background"></div>
-		
-		<div id="boxMonthlyQuestions">
-			<div class="boxTitle">Vastaukset kuukauden kysymykseen</div>
-			<div class="boxClose">Sulje</div>
-			<div class="boxContent"></div>
-		</div>
-		
-		<div id="frontpage">
-			<div id="frontpage-info" class="icon-info-big"></div>
-			<div id="frontpage-info-box">
-				<div>
-					<div class="img-wrap">
-						<div class="rescaled-img-wrap">
-							<img class="rescaled-img" src="img/icon_info_big.png" style="max-width:80px;" />
-						</div>
-					</div>
-					<span>
-						<br /><br />
-						Palautepallomeri&copy; on Suomen Muotoilu-säätiön ja Lahden Ammattikorkeakoulun yhteistyössä kehittämä palautejärjestelmä, 
-						jossa palautteen antaminen on sosiaalista ja läpinäkyvää. <br /><br />
-						Nopea vilkaisu kertoo katsojalle, mistä Fellmanniassa puhutaan sekä yleisen tunnelman. Kuka tahansa saa palautepallomeressä&copy; 
-						äänensä kuuluviin nopeasti ja vaivattomasti! <br /><br />
-						Konsensus toimivasta palveluista tai hiertävistä epäkohdista antaa arvokasta tietoa ja lisäeväitä Fellmannian kehittämiseksi.
-						<br /><br />
-					</span>
-				</div>
-			</div>
-			
-			<div id="frontpage-icon-container">
-				<div id="frontpage-gotoapp" class="icon-fellmannia-big"><div>Anna palautetta</div></div>
-				<div id="frontpage-gotomap" class="icon-map-big"><div>Kartta</div></div>
-				<div style="clear:both;"></div>
-			</div>
-			
-			<div id="frontpage-links-container">
-				<div id="frontpage-link-lahti" class="icon-lahti"><div>Tietoa Lahdesta</div></div>
-				<div id="frontpage-link-matkahuolto" class="icon-matkahuolto"><div>Bussiaikataulut</div></div>
-				<div id="frontpage-link-vr" class="icon-vr"><div>Juna-aikataulut</div></div>
-				<div style="clear:both;"></div>
-			</div>
-		</div>
-		
-		<div id="pallomeri">
-			<div id="pallomeri-instructions-box">
-				<div>
-					<div class="img-wrap">
-						<div class="rescaled-img-wrap">
-							<img class="rescaled-img" src="img/icon_fellmannia.png" style="max-width:100px;" />
-						</div>
-					</div>
-					<span>
-						<br /><br />
-						Fellmannian uudessa palautepallomeressä voit jättää helposti palautetta ilman valikkoviidakoita ja monivaiheisia prosesseja.
-						<br /><br />
-					</span>
-					
-					<div class="img-wrap">
-						<div class="rescaled-img-wrap">
-							<img class="rescaled-img" src="img/icon_addcomment_draw.png" style="max-width:180px;" />
-						</div>
-					</div>
-					<span>
-						<br /><br />
-						Jätä palautteesi kuplaan alakulman + painikkeesta.
-						<br /><br />
-					</span>
-					
-					<div class="img-wrap">
-						<div class="rescaled-img-wrap">
-							<img class="rescaled-img" src="img/icon_like_draw.png" style="max-width:540px;" />
-						</div>
-					</div>
-					<span>
-						<br /><br />
-						Uusi kupla on syntynyt! <br />
-						Mitä enemmän tykkäyksiä kuplasi saa, sitä suuremmaksi se kasvaa. Voit myös tykätä muiden kuplista peukuttamalla niitä.
-						<br /><br />
-					</span>
-					
-					<div class="img-wrap">
-						<div class="rescaled-img-wrap">
-							<img class="rescaled-img" src="img/icon_feedback_draw.png" style="max-width:180px;" />
-						</div>
-					</div>
-					<span>
-						<br /><br />
-						Muistathan, että rakentava palaute kuunnellaan!
-						<br /><br />
-					</span>
+    <body>
+        <!--[if lt IE 7]>
+                <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
 
-				</div>
-			</div>
-			
-			<div id="categories">
-				<div id="container"></div>
-			</div>
-			<div id="container2">
-				<div id="instructions"></div>
-			</div>
+        <div id="background"></div>
+        <div id="boxDebug">
+            <h1>Asetukset</h1>
+            <b>Kirjautumisen tarkistusväli (s): </b> <input type="text" id="settingsLoginCheck" size="10" value="30" /><br />
+            <b>Uusien palautteiden tarkistusväli (s): </b> <input type="text" id="settingsNewComments" size="10" value="30" /><br /><br />
+            <button value="" id="settingsSave">Tallenna</button>
+        </div>
 
-			<img src="img/icon_like_positive.png" class="like-icon" />
-			<div id="likeCount"></div>
-			<img src="img/icon_like_negative.png" class="dislike-icon" />
-			<div id="dislikeCount"></div>
-			<div class="balls"></div>
-			
-			<div id="addFeedback"></div>
-			
-			<div id="boxFeedback" class="touchContainer">
-				<div id="boxFeedbackContainer" class="touchContainerInner">
-					<form id="formFeedback">
-						<div class="img-wrap">
-							<div class="rescaled-img-wrap">
-								<img class="rescaled-img" src="img/icon_fellmannia.png" style="max-width:100px;" />
-							</div>
-						</div>
-						<br /><br />
-						
-						<select id="feedbackCategory">
-							<option selected="selected" value="0">Valitse kategoria</option>
-						</select>
-						<span class="error categoryError"></span>
-						
-						<span>
-							<br /><br />
-							Kirjoita oma palautekuplasi (max. 140 merkkiä):
-							<br />
-						</span>
-						
-						<textarea type="text" id="feedbackMsg" rows="4" cols="41"></textarea>
-						<span class="error msgError"></span>
-						
-						<span>
-							<br />
-							Jätä alle yhteystietosi, jotta voimme ottaa sinuun yhteyttä:
-							<br />
-						</span>
-						
-						<div id="boxContactInformation">
-							<input type="text" id="feedbackName" size="41" placeholder="Nimesi" /><br />
-							<span class="error nameError"></span>
-							<input type="text" id="feedbackEmail" size="41" placeholder="Sähköpostiosoitteesi" /><br />
-							<span class="error emailError"></span>
-							<input type="text" id="feedbackPhone" size="41" placeholder="Puhelinnumerosi" /><br />
-							<span class="error phoneError"></span>
-						</div>
-						
-						<span>
-							<br />
-							Palautteesi sävy:
-							<br /><br />
-						</span>
-						
-						<input type="radio" id="posit" name="tone" /><label for="posit" data-status="2"><img id="posit_like" src="img/icon_like_positive_active.png" /></label>
-						<input type="radio" id="neutr" name="tone" /><label for="neutr" data-status="1"><img id="neutr_like" src="img/icon_like_neutral_active.png" /></label>
-						<input type="radio" id="negat" name="tone" /><label for="negat" data-status="0"><img id="negat_like" src="img/icon_like_negative_active.png" /></label>
-						<span class="error toneError"></span>
-						<br />
-						<br />
-						<input type="button" value="Lähetä" class="btnSave" />
-						<input type="button" value="Peruuta" class="btnCancel" />
-						<br /><br /><br /><br />
-					</form>
-				</div>
-			</div>
-					
-			<div id="etusivu"></div>
-			
-			<div id="boxThanks" class="touchContainer">
-				<div class="touchContainerInner">
-					<div class="img-wrap">
-						<div class="rescaled-img-wrap">
-							<img class="rescaled-img" src="img/icon_fellmannia.png" style="max-width:100px;" />
-						</div>
-					</div>
-					<span>
-						<br />
-						Kiitämme palautteestasi!
-						<br />
-						<br />
-						Mikäli jätit yhteystietosi, otamme sinuun yhteyttä mahdollisimman pian.
-						<br />
-						<br />
-						Hyvää päivänjatkoa!
-					</span>
-				</div>
-			</div>
-		</div>
-		
-		<div id="boxMessage" class="touchContainer">
-			<div class="touchContainerInner">
-				<div class="img-wrap">
-					<div class="rescaled-img-wrap">
-						<img class="rescaled-img" src="img/icon_info_big.png" style="max-width:100px;" />
-					</div>
-				</div>
-				<br /><br />
-				<span></span>
-			</div>
-		</div>
-		
+        <div id="frontpage">
+            <div id="frontpage-info" class="icon-info-big"></div>
+            <div id="frontpage-admin" class="icon-admin-big"></div>
+            <div id="frontpage-info-box">
+                <div>
+                    <div class="img-wrap">
+                        <div class="rescaled-img-wrap">
+                            <img class="rescaled-img" src="img/icon_info_big.png" style="max-width:80px;" />
+                        </div>
+                    </div>
+                    <span>
+                        <br /><br />
+                        Palautepallomeri&copy; on Suomen Muotoilu-säätiön ja Lahden Ammattikorkeakoulun yhteistyössä kehittämä palautejärjestelmä, 
+                        jossa palautteen antaminen on sosiaalista ja läpinäkyvää. <br /><br />
+                        Nopea vilkaisu kertoo katsojalle, mistä Fellmanniassa puhutaan sekä yleisen tunnelman. Kuka tahansa saa palautepallomeressä&copy; 
+                        äänensä kuuluviin nopeasti ja vaivattomasti! <br /><br />
+                        Konsensus toimivasta palveluista tai hiertävistä epäkohdista antaa arvokasta tietoa ja lisäeväitä Fellmannian kehittämiseksi.
+                        <br /><br />
+                    </span>
+                </div>
+            </div>
+
+            <div id="frontpage-icon-container">
+                <div id="frontpage-gotoapp" class="icon-fellmannia-big"><div>Anna palautetta</div></div>
+                <div id="frontpage-gotomap" class="icon-map-big"><div>Kartta</div></div>
+                <div style="clear:both;"></div>
+            </div>
+
+            <div id="frontpage-links-container">
+                <div id="frontpage-link-lahti" class="icon-lahti"><div>Tietoa Lahdesta</div></div>
+                <div id="frontpage-link-matkahuolto" class="icon-matkahuolto"><div>Bussiaikataulut</div></div>
+                <div id="frontpage-link-vr" class="icon-vr"><div>Juna-aikataulut</div></div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+        <div id="pallomeri">
+            <div id="pallomeri-instructions-box">
+                <div>
+                    <div class="img-wrap">
+                        <div class="rescaled-img-wrap">
+                            <img class="rescaled-img" src="img/icon_fellmannia.png" style="max-width:100px;" />
+                        </div>
+                    </div>
+                    <span>
+                        <br /><br />
+                        Fellmannian uudessa palautepallomeressä voit jättää helposti palautetta ilman valikkoviidakoita ja monivaiheisia prosesseja.
+                        <br /><br />
+                    </span>
+
+                    <div class="img-wrap">
+                        <div class="rescaled-img-wrap">
+                            <img class="rescaled-img" src="img/icon_addcomment_draw.png" style="max-width:180px;" />
+                        </div>
+                    </div>
+                    <span>
+                        <br /><br />
+                        Jätä palautteesi kuplaan alakulman + painikkeesta.
+                        <br /><br />
+                    </span>
+
+                    <div class="img-wrap">
+                        <div class="rescaled-img-wrap">
+                            <img class="rescaled-img" src="img/icon_like_draw.png" style="max-width:540px;" />
+                        </div>
+                    </div>
+                    <span>
+                        <br /><br />
+                        Uusi kupla on syntynyt! <br />
+                        Mitä enemmän tykkäyksiä kuplasi saa, sitä suuremmaksi se kasvaa. Voit myös tykätä muiden kuplista peukuttamalla niitä.
+                        <br /><br />
+                    </span>
+
+                    <div class="img-wrap">
+                        <div class="rescaled-img-wrap">
+                            <img class="rescaled-img" src="img/icon_feedback_draw.png" style="max-width:180px;" />
+                        </div>
+                    </div>
+                    <span>
+                        <br /><br />
+                        Muistathan, että rakentava palaute kuunnellaan!
+                        <br /><br />
+                    </span>
+
+                </div>
+            </div>
+
+            <div id="categories">
+                <div id="container"></div>
+            </div>
+            <div id="container2">
+                <div id="instructions"></div>
+            </div>
+            <div id="arrowLeft"><img src="img/icon_arrow_left.png" /></div>
+            <div id="arrowRight"><img src="img/icon_arrow_right.png" /></div>
+            <div id="arrowLeftMini"><img src="img/icon_arrow_left_mini.png" /></div>
+            <div id="arrowRightMini"><img src="img/icon_arrow_right_mini.png" /></div>
+
+            <img src="img/icon_like_positive.png" class="like-icon" />
+            <div id="likeCount"></div>
+            <img src="img/icon_like_negative.png" class="dislike-icon" />
+            <div id="dislikeCount"></div>
+            <div class="balls"></div>
+
+            <div id="addFeedback"></div>
+
+            <div id="boxFeedback" class="touchContainer">
+                <div id="boxFeedbackContainer" class="touchContainerInner">
+                    <form id="formFeedback">
+                        <div class="img-wrap">
+                            <div class="rescaled-img-wrap">
+                                <img class="rescaled-img" src="img/icon_fellmannia.png" style="max-width:100px;" />
+                            </div>
+                        </div>
+                        <br /><br />
+                        
+                        <div id="feedbackNotLoggedIn">
+                            <select id="feedbackCategory">
+                                <option selected="selected" value="0">Valitse kategoria</option>
+                                <option value="2">Vastaa kuukauden kysymykseen</option>
+                            </select>
+                            <span class="error categoryError"></span>
+
+                            <div id="feedbackOnly">
+                                <span>
+                                    <br /><br />
+                                    Kirjoita oma palautekuplasi (max. 140 merkkiä):
+                                    <br />
+                                </span>
+
+                                <textarea id="feedbackMsg" rows="4" cols="41"></textarea>
+                                <span class="error msgError"></span>
+
+                                <span>
+                                    <br />
+                                    Jätä alle yhteystietosi, jotta voimme ottaa sinuun yhteyttä:
+                                    <br />
+                                </span>
+
+                                <div id="boxContactInformation">
+                                    <input type="text" id="feedbackName" size="41" placeholder="Nimesi" /><br />
+                                    <span class="error nameError"></span>
+                                    <input type="text" id="feedbackEmail" size="41" placeholder="Sähköpostiosoitteesi" /><br />
+                                    <span class="error emailError"></span>
+                                    <input type="text" id="feedbackPhone" size="41" placeholder="Puhelinnumerosi" /><br />
+                                    <span class="error phoneError"></span>
+                                </div>
+
+                                <span>
+                                    <br />
+                                    Palautteesi sävy:
+                                    <br /><br />
+                                </span>
+
+                                <input type="radio" id="posit" name="tone" /><label for="posit" data-status="2"><img id="posit_like" src="img/icon_like_positive_active.png" /></label>
+                                <input type="radio" id="neutr" name="tone" /><label for="neutr" data-status="1"><img id="neutr_like" src="img/icon_like_neutral_active.png" /></label>
+                                <input type="radio" id="negat" name="tone" /><label for="negat" data-status="0"><img id="negat_like" src="img/icon_like_negative_active.png" /></label>
+                                <span class="error toneError"></span>
+                            </div> <!-- feedbackOnly -->
+                            <div id="feedbackAnswer">
+                                <textarea id="feedbackAnswerText" rows="4" cols="41"></textarea>
+                                <span class="error answerError"></span>
+                            </div> <!-- feedbackAnswer -->
+                        </div>
+                        <div id="feedbackLoggedIn">
+                            <span>
+                                <br /><br />
+                                Olet kirjautuneena sisään henkilökunnan tunnuksella. Tätä kautta voit kirjoittaa uuden kuukauden kysymyksen:
+                                <br />
+                            </span>
+                            <textarea id="feedbackQuestion" rows="4" cols="41"></textarea>
+                            <span class="error questionError"></span>
+                        </div>
+                        <br />
+                        <br />
+                        <input type="button" value="Lähetä" class="btnSave" />
+                        <input type="button" value="Peruuta" class="btnCancel" />
+                        <br /><br /><br /><br />
+                    </form>
+                </div>
+            </div>
+
+            <div id="backToAdmin"></div>
+            <div id="etusivu"></div>
+
+            <div id="boxThanks" class="touchContainer">
+                <div class="touchContainerInner">
+                    <div class="img-wrap">
+                        <div class="rescaled-img-wrap">
+                            <img class="rescaled-img" src="img/icon_fellmannia.png" style="max-width:100px;" />
+                        </div>
+                    </div>
+                    <span>
+                        <br />
+                        Kiitämme palautteestasi!
+                        <br />
+                        <br />
+                        Mikäli jätit yhteystietosi, otamme sinuun yhteyttä mahdollisimman pian.
+                        <br />
+                        <br />
+                        Hyvää päivänjatkoa!
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div id="boxMessage" class="touchContainer">
+            <div class="touchContainerInner">
+                <div class="img-wrap">
+                    <div class="rescaled-img-wrap">
+                        <img class="rescaled-img" src="img/icon_info_big.png" style="max-width:100px;" />
+                    </div>
+                </div>
+                <br /><br />
+                <span></span>
+            </div>
+        </div>
+
+        <div id="boxMonthlyQuestion">
+            <div class="boxTitle">Vastaukset kuukauden<br />kysymykseen (<span class="answerCount"></span>)</div>
+            <div class="boxClose icon-close-big"></div>
+            <div class="boxContent"></div>
+        </div>
+        
         <script src="js/vendor/jquery-1.9.0.js"></script>
-		<script src="js/jquery-ui-1.10.0.custom.min.js"></script>
-		<script src="js/jquery.ui.touch-punch.min.js"></script>
-		<script src="js/jstween-1.1.min.js"></script>
-		<script src="js/vendor/modernizr-2.6.1.min.js"></script>
-		<script src="js/touchswipe.js"></script>
+        <script src="js/jquery-ui-1.10.0.custom.min.js"></script>
+        <script src="js/jquery.ui.touch-punch.min.js"></script>
+        <script src="js/jstween-1.1.min.js"></script>
+        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="js/touchswipe.js"></script>
 
-		<script src="js/class.Feedback.js"></script>
-		<script src="js/class.Point.js"></script>
-		<script src="js/class.CategoryMenu.js"></script>
-		<script src="js/class.BallsCollection.js"></script>
-		<script src="js/class.Ball.js"></script>
-		
+        <script src="js/class.Feedback.js"></script>
+        <script src="js/class.Point.js"></script>
+        <script src="js/class.CategoryMenu.js"></script>
+        <script src="js/class.BallsCollection.js"></script>
+        <script src="js/class.Ball.js"></script>
+
         <script src="js/main.js"></script>
     </body>
 </html>

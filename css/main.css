@@ -4,7 +4,7 @@
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
- */
+*/
 
 /* ==========================================================================
    Base styles: opinionated defaults
@@ -19,48 +19,48 @@ textarea {
 }
 
 html{
-	overflow: hidden;
+    overflow: hidden;
 }
 
 body {
     font-size: 1em;
     line-height: 1.4;
-	padding: 0;
-	margin: 0;
-	overflow:hidden;
+    padding: 0;
+    margin: 0;
+    overflow:hidden;
 }
 
 #background {
-	position:fixed;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	width:100%;
-	min-height: 100%;
-	margin: auto;
-	_background: #8c8d8f; /* Old browsers */
-	_background: -moz-linear-gradient(-45deg, #8c8d8f 0%, #d7e6ae 100%); /* FF3.6+ */
-	_background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#8c8d8f), color-stop(100%,#d7e6ae)); /* Chrome,Safari4+ */
-	_background: -webkit-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* Chrome10+,Safari5.1+ */
-	_background: -o-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* Opera 11.10+ */
-	_background: -ms-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* IE10+ */
-	_background: linear-gradient(135deg, #8c8d8f 0%,#d7e6ae 100%); /* W3C */
-	_filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c8d8f', endColorstr='#d7e6ae',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-	background: #a5a5a5; /* Old browsers */
-	background: -moz-linear-gradient(top, #a5a5a5 0%, #e8e8e8 25%, #e8e8e8 50%, #e8e8e8 75%, #a5a5a5 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a5a5a5), color-stop(25%,#e8e8e8), color-stop(50%,#e8e8e8), color-stop(75%,#e8e8e8), color-stop(100%,#a5a5a5)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* IE10+ */
-	background: linear-gradient(to bottom, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5a5a5', endColorstr='#a5a5a5',GradientType=0 ); /* IE6-9 */
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width:100%;
+    min-height: 100%;
+    margin: auto;
+    _background: #8c8d8f; /* Old browsers */
+    _background: -moz-linear-gradient(-45deg, #8c8d8f 0%, #d7e6ae 100%); /* FF3.6+ */
+    _background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#8c8d8f), color-stop(100%,#d7e6ae)); /* Chrome,Safari4+ */
+    _background: -webkit-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* Chrome10+,Safari5.1+ */
+    _background: -o-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* Opera 11.10+ */
+    _background: -ms-linear-gradient(-45deg, #8c8d8f 0%,#d7e6ae 100%); /* IE10+ */
+    _background: linear-gradient(135deg, #8c8d8f 0%,#d7e6ae 100%); /* W3C */
+    _filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c8d8f', endColorstr='#d7e6ae',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: #a5a5a5; /* Old browsers */
+    background: -moz-linear-gradient(top, #a5a5a5 0%, #e8e8e8 25%, #e8e8e8 50%, #e8e8e8 75%, #a5a5a5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a5a5a5), color-stop(25%,#e8e8e8), color-stop(50%,#e8e8e8), color-stop(75%,#e8e8e8), color-stop(100%,#a5a5a5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #a5a5a5 0%,#e8e8e8 25%,#e8e8e8 50%,#e8e8e8 75%,#a5a5a5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5a5a5', endColorstr='#a5a5a5',GradientType=0 ); /* IE6-9 */
 }
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
  * These selection declarations have to be separate.
  * Customize the background color to match your design.
- */
+*/
 
 ::-moz-selection {
     background: #b3d4fc;
@@ -74,7 +74,7 @@ body {
 
 /*
  * A better looking default horizontal rule
- */
+*/
 
 hr {
     display: block;
@@ -87,7 +87,7 @@ hr {
 
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
- */
+*/
 
 img {
     vertical-align: middle;
@@ -95,7 +95,7 @@ img {
 
 /*
  * Remove default fieldset styles.
- */
+*/
 
 fieldset {
     border: 0;
@@ -105,7 +105,7 @@ fieldset {
 
 /*
  * Allow only vertical resizing of textareas.
- */
+*/
 
 textarea {
     resize: vertical;
@@ -125,211 +125,264 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-   
+
 #pallomeri {
-	display: none;
+    display: none;
 }
-#boxMonthlyQuestions {
-	display: none;
-	background:url(../img/bg_darktransparent.png);
-	position:absolute;
-	width:100%;
-	height:100%;
-	top:0;
-	left:0;
-	z-index:100;
-	overflow:auto;
-	color:#fff;
+#boxMonthlyQuestion {
+    display: none;
+    background:url(../img/bg_darktransparent.png);
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:100;
+    overflow:auto;
+    color:#fff;
 }
-#boxMonthlyQuestions .boxTitle{
-	width:70%;
-	float:left;
-	padding:5px;
-	font-size:15px;
+#boxMonthlyQuestion .boxTitle{
+    text-align:center;
+    font-size:15px;
+    font-family: 'Antic Slab', serif;
 }
-#boxMonthlyQuestions .boxClose{
-	width:20%;
-	float:right;
-	padding:5px;
-	font-size:15px;
-	background:#000;
-	text-align:right;
+#boxMonthlyQuestion .boxClose{
+    position:absolute;
+    top:5px;
+    right:5px;
+}
+#boxMonthlyQuestion .boxContent {
+    width:100%;
+    position:absolute;
+    _overflow:auto;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+#boxMonthlyQuestion .boxContent div {
+    font-size:20px;
+    font-family: 'Antic Slab', serif;
+    padding:10px;
 }
 
 /*
  * Pallomeren ohjeistus
- */
+*/
 #pallomeri-instructions-box, .touchContainer {
-	background:url(../img/bg_darktransparent.png);
-	position:absolute;
-	width:100%;
-	height:100%;
-	top:0;
-	left:0;
-	z-index:100;
-	_overflow:auto;
-	overflow: scroll;
-	-webkit-overflow-scrolling: touch;
+    background:url(../img/bg_darktransparent.png);
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:100;
+    _overflow:auto;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 #pallomeri-instructions-box > div, .touchContainerInner {
-	_width:500px;
-	margin:0 auto;
-	margin-top:5%;
-	color:#fff;
-	text-align:center;
+    _width:500px;
+    margin:0 auto;
+    margin-top:5%;
+    color:#fff;
+    text-align:center;
 }
 
 #pallomeri-instructions-box span {
-	font-family: 'Antic Slab', serif;
+    font-family: 'Antic Slab', serif;
 }
 .textcontainer{
-	display: inline-block;
+    display: inline-block;
 }
 
 .img-wrap{
-	display: inline-block;       
+    display: inline-block;       
     position:relative;  
 }
 .rescaled-img-wrap{
-	margin:0 auto;
-	width: 90%;
+    margin:0 auto;
+    width: 90%;
 }
 .rescaled-img{
-	width: 100%;
-    //height: 100%;
+    width: 100%;
+    _height: 100%;
 }
 
 /*
  * kategoriavalikko
- */
+*/
 #categories{
-	width: 100%;
-	height: 60px;
-	overflow-x: auto;
-	overflow-y: hidden;
-	float: left;
-	display: inline;
-	white-space: nowrap;
-	overflow: hidden;
-	color: #ffffff;
-	font-family: 'Antic Slab', serif;
-	position:absolute;
-	z-index:2;
+    width: 100%;
+    height: 60px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    float: left;
+    display: inline;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #ffffff;
+    font-family: 'Antic Slab', serif;
+    position:absolute;
+    z-index:2;
 }
 #container{
-	width: 100%;
-	height: 60px;
-	display: inline;
-	overflow: hidden;
-	white-space: nowrap;
-	position: absolute;
+    width: 100%;
+    height: 60px;
+    display: inline;
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
 }
 .header{
-	float: left;
-	height: 60px;
-	text-align: center;
-	display: inline-block;
-	position: fixed;
+    float: left;
+    height: 60px;
+    text-align: center;
+    display: inline-block;
+    position: fixed;
 }
 #container2{
-	position:absolute;
-	width: 100%;
-	height: 40px;
-	overflow-x: auto;
-	overflow-y: hidden;
-	float: left;
-	display: block;
-	_white-space: nowrap;
-	_overflow: hidden;
-	color: #ffffff;
-	font-family: 'Antic Slab', serif;
-	z-index:1;
+    position:absolute;
+    width: 100%;
+    height: 40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    float: left;
+    display: block;
+    _white-space: nowrap;
+    _overflow: hidden;
+    color: #ffffff;
+    font-family: 'Antic Slab', serif;
+    z-index:1;
 }
 #instructions{
-	width: 100%;
-	height: 40px;
-	display: inline;
-	_overflow: hidden;
-	_white-space: nowrap;
-	position: absolute;	
+    width: 100%;
+    height: 40px;
+    display: inline;
+    _overflow: hidden;
+    _white-space: nowrap;
+    position: absolute;	
 }
 .instructiontext{
-	float: left;
-	height: 40px;
-	width: 100%;
-	text-align: center;
-	_display: inline-block;
-	position: fixed;
+    float: left;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    _display: inline-block;
+    position: fixed;
+}
+
+#arrowLeft{
+    position:absolute;
+    top:10px;
+    left:10px;
+    width:46px;
+    height:92px;
+    z-index:10;
+}
+#arrowRight{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:46px;
+    height:92px;
+    z-index:10;
+}
+#arrowLeftMini{
+    position:absolute;
+    top:10px;
+    left:10px;
+    width:23px;
+    height:46px;
+    z-index:10;
+    display:none;
+}
+#arrowRightMini{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:23px;
+    height:46px;
+    z-index:10;
+    display:none;
 }
 
 /*
  * Pallomeri
- */
+*/
 #pallot {
-	position: fixed;
-	width: 100%;
-	top: 100px;
-	/*background: #916;*/
-	overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 100px;
+    /*background: #916;*/
+    overflow: hidden;
 }
 #addFeedback {
-	position: fixed;
-	right: 10px;
-	bottom: 10px;
-	width: 80px;
-	height: 54px;
-	background: url(../img/icon_addcomment.png) no-repeat;
-	cursor: pointer;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 80px;
+    height: 54px;
+    background: url(../img/icon_addcomment.png) no-repeat;
+    cursor: pointer;
 }
 #etusivu {
-	position: fixed;
-	left: 10px;
-	bottom: 10px;
-	width: 80px;
-	height: 57px;
-	background: url(../img/icon_fellmannia2.png) no-repeat;
-	cursor: pointer;
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    width: 80px;
+    height: 57px;
+    background: url(../img/icon_fellmannia2.png) no-repeat;
+    cursor: pointer;
+}
+
+#backToAdmin {
+    position: fixed;
+    left: 10px;
+    bottom: 100px;
+    width: 80px;
+    height: 80px;
+    background: url(../img/icon_admin_big.png) no-repeat;
+    cursor: pointer;
 }
 
 #rebound {
-	background: green no-repeat;
-	left: 10px;
-	bottom: 80px;
-	height: 40px;
-	width: 40px;
-	position: fixed;
-	cursor: pointer;
+    background: green no-repeat;
+    left: 10px;
+    bottom: 80px;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    cursor: pointer;
 }
 
 
 /*
  * FEEDBACK CONTAINER
- */
+*/
 #boxFeedback {
-	background:url(../img/bg_darktransparent.png);
-	position:absolute;
-	width:100%;
-	height:100%;
-	top:0;
-	left:0;
-	z-index:100;
-	display: none;
+    background:url(../img/bg_darktransparent.png);
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:100;
+    display: none;
 }
 #boxFeedback * {
-	font-family: 'Antic Slab', serif;
+    font-family: 'Antic Slab', serif;
 }
 #boxFeedbackContainer{
-	color:#fff;
-	_height: 450px;
-	max-width: 400px;
-	padding: 0 10px 0 10px;
-	_margin:10% auto;
+    color:#fff;
+    _height: 450px;
+    max-width: 400px;
+    padding: 0 10px 0 10px;
+    _margin:10% auto;
 }
 
 /* FORM */
 #formFeedback select, #formFeedback textarea {
-	width:100%;
-	margin-top:10px;
+    width:100%;
+    margin-top:10px;
 }
 #formFeedback label {
     display: inline-block;
@@ -343,117 +396,120 @@ textarea {
 }
 
 #formFeedback span {
-	font-size:20px;
+    font-size:20px;
 }
 
 #formFeedback .btnSave, #formFeedback .btnCancel {
-	font-family: 'Antic Slab', serif;
-	font-size: 30px;
-	color: #ffffff;
-	padding: 10px 20px;
-	background: -moz-linear-gradient(
-		top,
-		#ededed 0%,
-		#878787);
-	background: -webkit-gradient(
-		linear, left top, left bottom, 
-		from(#ededed),
-		to(#878787));
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	border: 1px solid #949494;
-	-moz-box-shadow:
-		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 2px rgba(255,255,255,1);
-	-webkit-box-shadow:
-		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 2px rgba(255,255,255,1);
-	box-shadow:
-		0px 1px 3px rgba(000,000,000,0.5),
-		inset 0px 0px 2px rgba(255,255,255,1);
-	text-shadow:
-		0px -1px 0px rgba(000,000,000,0.2),
-		0px 1px 0px rgba(255,255,255,1);
+    font-family: 'Antic Slab', serif;
+    font-size: 30px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background: -moz-linear-gradient(
+        top,
+        #ededed 0%,
+        #878787);
+    background: -webkit-gradient(
+        linear, left top, left bottom, 
+        from(#ededed),
+        to(#878787));
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #949494;
+    -moz-box-shadow:
+        0px 1px 3px rgba(000,000,000,0.5),
+        inset 0px 0px 2px rgba(255,255,255,1);
+    -webkit-box-shadow:
+        0px 1px 3px rgba(000,000,000,0.5),
+        inset 0px 0px 2px rgba(255,255,255,1);
+    box-shadow:
+        0px 1px 3px rgba(000,000,000,0.5),
+        inset 0px 0px 2px rgba(255,255,255,1);
+    text-shadow:
+        0px -1px 0px rgba(000,000,000,0.2),
+        0px 1px 0px rgba(255,255,255,1);
 
 }
 #feedbackCategory {
-	position: relative;
-	background:url(../img/bg_darktransparent.png);
-	color: #fff;
-	_left: 50px;
-	border: 0 none;
+    position: relative;
+    background:url(../img/bg_darktransparent.png);
+    color: #fff;
+    _left: 50px;
+    border: 0 none;
     border-radius: 10px 10px 10px 10px;
-	padding:5px;
+    padding:5px;
 }
 #feedbackCategory option {
-	background: #222222;
-	color: #fff;
+    background: #222222;
+    color: #fff;
 }
 #boxContactInformation{
 
 }
 #boxContactInformation input {
-	background:transparent;
-	border: 0 none;
+    background:transparent;
+    border: 0 none;
     border-bottom: 1px solid #fff;
     color: #FFFFFF;
     padding: 2px;
-	width:100%;
-	margin-top:10px;
+    width:100%;
+    margin-top:10px;
 }
-#feedbackMsg {
-	background: url(../img/bg_textarea.png) repeat-x scroll 0 0 transparent;
+#feedbackMsg, #feedbackQuestion, #feedbackAnswerText {
+    background: url(../img/bg_textarea.png) repeat-x scroll 0 0 transparent;
     border: 0 none;
     color: #FFFFFF;
-	height:75px;
+    height:75px;
+}
+#feedbackAnswer{
+    display:none;
 }
 
 #posit_like {
-	height: 40px;
-	width: 40px;
+    height: 40px;
+    width: 40px;
 }
 #neutr_like {
-	height: 40px;
-	width: 40px;
+    height: 40px;
+    width: 40px;
 }
 #negat_like {
-	height: 40px;
-	width: 40px;
+    height: 40px;
+    width: 40px;
 }
 span.error {
-	color:#ff0000;
-	display:none;
+    color:#ff0000;
+    display:none;
 }
 
 /*
  * Kiitokset palautteesta
- */
+*/
 #boxThanks {
-	background:url(../img/bg_darktransparent.png);
-	position:absolute;
-	width:100%;
-	height:100%;
-	top:0;
-	left:0;
-	z-index:100;
-	display: none;
+    background:url(../img/bg_darktransparent.png);
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:100;
+    display: none;
 }
 #boxThanks > div {
-	width:500px;
-	margin:0 auto;
-	margin-top:5%;
-	color:#fff;
-	text-align:center;
+    width:500px;
+    margin:0 auto;
+    margin-top:5%;
+    color:#fff;
+    text-align:center;
 }
 #boxThanks > div > span {
-	font-family: 'Antic Slab', serif;
-	font-size:40px;
+    font-family: 'Antic Slab', serif;
+    font-size:40px;
 }
 
 /*
  * Palautteen laadun valinta
- */
+*/
 .input_hidden {
     position: absolute;
     left: -9999px;
@@ -474,16 +530,26 @@ span.error {
 
 
 #boxMessage {
-	display:none;
-	z-index:2000;
+    display:none;
+    z-index:2000;
 }
 #boxMessage span {
-	font-family: 'Antic Slab', serif;
+    font-family: 'Antic Slab', serif;
 }
 
 
 
-
+#boxDebug {
+    background:#aaa;
+    display:none;
+    height:300px;
+    width:960px;
+    position:absolute;
+    top:0;
+    left:50%;
+    margin-left:-480px;
+    z-index:4000;
+}
 
 
 
@@ -500,7 +566,7 @@ span.error {
 
 /*
  * Image replacement
- */
+*/
 
 .ir {
     background-color: transparent;
@@ -519,7 +585,7 @@ span.error {
 
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
- */
+*/
 
 .hidden {
     display: none !important;
@@ -528,7 +594,7 @@ span.error {
 
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
- */
+*/
 
 .visuallyhidden {
     border: 0;
@@ -544,7 +610,7 @@ span.error {
 /*
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
- */
+*/
 
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
@@ -558,7 +624,7 @@ span.error {
 
 /*
  * Hide visually and from screenreaders, but maintain layout
- */
+*/
 
 .invisible {
     visibility: hidden;
@@ -574,7 +640,7 @@ span.error {
  *    that receive the `clearfix` class.
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
- */
+*/
 
 .clearfix:before,
 .clearfix:after {
@@ -589,7 +655,7 @@ span.error {
 /*
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
- */
+*/
 
 .clearfix {
     *zoom: 1;
@@ -606,7 +672,7 @@ span.error {
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (min-resolution: 144dpi) {
+only screen and (min-resolution: 144dpi) {
     /* Style adjustments for high resolution devices */
 }
 
@@ -638,7 +704,7 @@ span.error {
 
     /*
      * Don't show links for images, or javascript/internal links
-     */
+    */
 
     .ir a:after,
     a[href^="javascript:"]:after,

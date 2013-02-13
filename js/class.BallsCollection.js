@@ -19,10 +19,14 @@ BallsCollection.prototype = {
 			
             window.BallsCollection.balls.forEach(function(ball) {
                 if(parseInt(ball.id) == parseInt(id)){
-                    if(ball.selected){
-                        ball.deselect();
+                    if(ball.status != 3){
+                        if(ball.selected){
+                            ball.deselect();
+                        }else{
+                            ball.select();
+                        }
                     }else{
-                        ball.select();
+                        window.BallsCollection.loadAnswers(ball.id);
                     }
                 }
             });
@@ -69,7 +73,7 @@ BallsCollection.prototype = {
             return false;
         });
 
-        $('#boxMonthlyQuestions .boxClose').click(function(){
+        $('#boxMonthlyQuestion .boxClose').click(function(){
             $(this).parent().fadeOut('fast');
             return false;
         });
@@ -93,10 +97,19 @@ BallsCollection.prototype = {
                 this.ballSizeMin = height/6;
             }
         }
+        
+        $('#boxMonthlyQuestion .boxTitle').css({
+            'width':width+'px',
+            'font-size': (width/20 < 84) ? width/20+'px' : '84px'
+        });
+        
+        $('#boxMonthlyQuestion .boxContent').css({
+            'top':(width/5 < 250) ? width/5+'px' : '250px'
+        });
     },
     loadBalls: function(wantedCategory){
         if(this.balls.length != 0){
-            this.clearBalls();
+            this.clearBalls(0);
             this.loadBallsAjax(wantedCategory);
         }else{
             this.loadBallsAjax(wantedCategory);
@@ -126,41 +139,49 @@ BallsCollection.prototype = {
                             else if(item.status == 3){
                                 color = 'blue';
                             }
-							
-                            var thumbCountPlus = 0;
-                            var thumbCountMinus = 0;
-							
-                            if(parseInt(item.thumbcountplus) >= 0){
-                                thumbCountPlus = item.thumbcountplus;
-                            }
-                            if(parseInt(item.thumbcountminus) >= 0){
-                                thumbCountMinus = item.thumbcountminus;
-                            }
                             
-                            var value = thumbCountPlus - thumbCountMinus;
-                            if(value > BallsCollection.ballValueMax){
-                                BallsCollection.ballValueMax = value;
+                            if(item.status == 3){
+                                BallsCollection.balls.push(new Ball(item.id, 3, item.text, BallsCollection.ballSizeMax, color, 0, 0));
+                            }else{
+                                var thumbCountPlus = 0;
+                                var thumbCountMinus = 0;
+
+                                if(parseInt(item.thumbcountplus) >= 0){
+                                    thumbCountPlus = item.thumbcountplus;
+                                }
+                                if(parseInt(item.thumbcountminus) >= 0){
+                                    thumbCountMinus = item.thumbcountminus;
+                                }
+
+                                var value = thumbCountPlus - thumbCountMinus;
+                                if(value > BallsCollection.ballValueMax){
+                                    BallsCollection.ballValueMax = value;
+                                }
+                                if(value < BallsCollection.ballValueMin){
+                                    BallsCollection.ballValueMin = value;
+                                }
+
+                                var size = BallsCollection.ballSizeMin;
+                                BallsCollection.balls.push(new Ball(item.id, item.status, item.text, size, color, thumbCountPlus, thumbCountMinus));
                             }
-                            if(value < BallsCollection.ballValueMin){
-                                BallsCollection.ballValueMin = value;
-                            }
-							
-                            var size = BallsCollection.ballSizeMin;
-                            BallsCollection.balls.push(new Ball(item.id, item.status, item.text, size, color, thumbCountPlus, thumbCountMinus));
-							
                         });
 					
                         BallsCollection.balls.forEach(function(ball){
-                            var value = ball.thumbCountPlus - ball.thumbCountMinus;
-                            ball.size = translate(value, BallsCollection.ballValueMin, BallsCollection.ballValueMax, BallsCollection.ballSizeMin, BallsCollection.ballSizeMax);
-                            ball.draw();
+                            if(ball.status != 3){
+                                var value = ball.thumbCountPlus - ball.thumbCountMinus;
+                                ball.size = translate(value, BallsCollection.ballValueMin, BallsCollection.ballValueMax, BallsCollection.ballSizeMin, BallsCollection.ballSizeMax);
+                                ball.draw();
+                            }else{
+                                ball.draw();
+                            }
+                            
                         });			
                     }
                 }
             });
         });
     },
-    clearBalls: function(){
+    clearBalls: function(f){
         $('div.sphere').fadeOut('fast', function(){
             $(this).remove();
         });
@@ -168,20 +189,28 @@ BallsCollection.prototype = {
             ball.resetAnimation();
         });
         this.balls = [];
+        
+        setTimeout(function(){
+            if(typeof f == 'function') f();
+        }, 500);
     },
-    loadMonthlyQuestions: function(commentID){
+    loadAnswers: function(qID){
         $.ajax({
-            url: window.serverUrl+'comments/question/'+commentID,
+            url: window.serverUrl+'question/comments/'+qID,
             type: "GET",
             dataType: 'json',
             success: function(data){
+                var $answers = $('#boxMonthlyQuestion .boxContent');
+                var $count = $('#boxMonthlyQuestion .boxTitle span.answerCount');
+                $answers.html('');
                 if(data.status != 0){
                     $.each(data.comments, function(i, item){
-						
-                        });
-                    $('#boxMonthlyQuestions').fadeIn('fast');
+                        $answers.append('<div>'+item.text+'</div>');
+                        $count.html(i+1);
+                    });
+                    $('#boxMonthlyQuestion').fadeIn('fast');
                 }else{
-				
+                    showMessage('Jokin meni pieleen');
                 }
             }
         });

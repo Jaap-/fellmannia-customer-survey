@@ -1,6 +1,6 @@
 function Ball(id, status, text, size, color, thumbCountPlus, thumbCountMinus) {
     this.id = id;
-    this.status = 0;
+    this.status = status;
     this.position = new Point(rand(world.x1, world.x2-size), rand(world.y1, world.y2-size));
     $('div.balls').append('<div class="clearfix sphere '+color+' float-left" style="display:none;" data-id="'+id+'" data-status="'+status+'" data-size="'+size+'"><p>'+text+'</p></div>');
     this.size = size;
@@ -133,7 +133,11 @@ Ball.prototype = {
         }else{
             size = world.y2-10;
         }
-		
+        
+        $element.children().each(function(){
+            $(this).fadeOut('fast');
+        });
+        
         $element.css('z-index', 100).animate({
             'position':'absolute',
             'top':'50%',
@@ -151,7 +155,7 @@ Ball.prototype = {
                 'font-size': Math.floor(size / (window.BallsCollection.fontScale+4)) + 'px'
             }, 1000, function(){
                 $element.children().each(function(){
-                    $(this).css('margin-top',-(parseInt($(this).height()) / 2) + 'px');
+                    $(this).css('margin-top',-(parseInt($(this).height()) / 2) + 'px').fadeIn('fast');
                 });
 				
                 var imgWidth = $('img.like-icon').width();
@@ -180,10 +184,13 @@ Ball.prototype = {
     deselect: function(){
         this.selected = false;
         var ballo = this;
-		
-        $('img.like-icon, img.dislike-icon, div#likeCount, div#dislikeCount').fadeOut('slow');
-		
         var $element = $('.sphere[data-id="'+this.id+'"]');
+        
+        $('img.like-icon, img.dislike-icon, div#likeCount, div#dislikeCount').fadeOut('fast');
+	$element.children().each(function(){
+            $(this).fadeOut('fast');
+        });
+        
         $element.animate({
             'position':'absolute',
             'top':this.position.y,
@@ -193,7 +200,7 @@ Ball.prototype = {
             'width':this.size+'px',
             'height':this.size+'px'
         }, 1000).css('z-index', 0);
-        $element.children().each(function() {
+        $element.children().each(function(){
             $(this).animate({
                 'position':'relative',
                 'top':'50%',
@@ -202,7 +209,7 @@ Ball.prototype = {
                 'font-size': Math.floor(ballo.size / window.BallsCollection.fontScale) + 'px'
             }, 1000, function(){
                 $element.children().each(function(){
-                    $(this).css('margin-top',-(parseInt($(this).height()+15) / 2) + 'px');
+                    $(this).css('margin-top',-(parseInt($(this).height()+15) / 2) + 'px').fadeIn('fast');
                 });
                 ballo.setAnimation();
             });
